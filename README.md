@@ -19,3 +19,8 @@ The [tutorial page](https://typst.app/docs/tutorial/) for Typst is already well 
 ### VSCode Extensions for Local Editing
 - [Language Server](https://marketplace.visualstudio.com/items?itemName=nvarner.typst-lsp)
 - [Previewer](https://marketplace.visualstudio.com/items?itemName=mgt19937.typst-preview)
+
+## Showcase
+
+[Preview the PDF](https://github.com/Anastasia-Labs/project-close-out-report-template/blob/main/close-out-template.pdf)
+
