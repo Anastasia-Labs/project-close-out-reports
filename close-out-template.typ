@@ -56,7 +56,9 @@
   ],
   footer-descent: 20%
 )
-#set par(justify: true)
+
+// This command can be turned on to justify the text #set par(justify: true)
+
 #show link: underline
 #show outline.entry.where(level: 1): it => {
   v(12pt, weak: true)
