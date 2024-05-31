@@ -1,5 +1,5 @@
 // Set the background image for the page
-#let image-background = image("images/Background-Carbon-Anastasia-Labs-01.jpg", height: 100%)
+#let image-background = image("../images/Background-Carbon-Anastasia-Labs-01.jpg", height: 100%)
 #set page(
   background: image-background,
   paper :"a4",
@@ -12,7 +12,7 @@
 #v(3cm) // Add vertical space
 
 // Center-align the logo
-#align(center)[#box(width: 75%, image("images/Logo-Anastasia-Labs-V-Color02.png"))]
+#align(center)[#box(width: 75%, image("../images/Logo-Anastasia-Labs-V-Color02.png"))]
 
 #v(1cm)
 
@@ -45,7 +45,7 @@
   background: none,
   header: [
     // Place logo in the header
-    #place(right, dy: 12pt)[#box(image(height: 75%,"images/Logo-Anastasia-Labs-V-Color01.png"))]
+    #place(right, dy: 12pt)[#box(image(height: 75%,"../images/Logo-Anastasia-Labs-V-Color01.png"))]
     #line(length: 100%) // Add a line under the header
   ],
   header-ascent: 5%,
