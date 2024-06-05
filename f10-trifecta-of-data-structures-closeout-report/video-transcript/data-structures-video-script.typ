@@ -141,6 +141,9 @@ To address these challenges, we focused on implementing robust on-chain data str
 These structures are essential for enhancing the scalability and efficiency of DApps on Cardano and provide efficient solutions within the blockchain's constraints.
 #v(10pt)
 
+#set text(size: 20pt) // Reset text size to 10pt
+#strong("Slide 3")
+#set text(size: 11pt)  // 
 \ // What was the approach you submitted in your proposal application which was eventually funded?
 = Project Objectives
 
@@ -152,13 +155,16 @@ These structures are essential for enhancing the scalability and efficiency of D
 #v(10pt)
 
 #set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 3")
+#strong("Slide 4")
 #set text(size: 11pt)  // 
 \ // Please explain any particular technical solutions you proposed and the amount of funding you received.
 = Execution and Milestones
 
 \ We approached the challenge by doing research on data structures and developing those that could have the biggest impact. We then divided our project into three phases: design and development, testing, and documentation.
 
+#set text(size: 20pt) // Reset text size to 10pt
+#strong("Slide 5")
+#set text(size: 11pt)  // 
 == Phase 1: Design & Development
 \ We successfully designed and developed the following data structures in both Plutarch and Aiken, each with its unique purpose and benefits:
 
@@ -169,17 +175,17 @@ We chose to go with Aiken and Plutarch as opposed to the other Cardano developme
 - Plutarch is known for its ability to manipulate outcomes at a lower level (close to UPLC), which enables more control over the execution of smart contracts, leading to more efficient and compact scripts.
 
 #set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 4")
+#strong("Slide 6")
 #set text(size: 11pt)  // 
 - *Merkle Tree:* The Merkle Tree is valuable in proving the presence of arbitrary data within the tree structure. By carrying only the root hash in the script, an efficient and space-saving proof can be generated, ensuring data integrity and validity.
 
 #set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 5")
+#strong("Slide 7")
 #set text(size: 11pt)  // 
 - *Trie (Stick Breaking Set):* Developed with comprehensive functionality for Aiken and Plutarch, the Trie is particularly useful in facilitating mutable data storage in scripts by leveraging the sharing of common prefixes. This approach optimizes storage efficiency and enables more extensive data manipulation within the constrained on-chain environment.
 
 #set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 6")
+#strong("Slide 8")
 #set text(size: 11pt)  // 
 - *Linked List:* Created to enhance scalability and throughput in smart contracts, the Linked List leverages the EUTXO model to significantly enhance scalability and throughput. By linking multiple UTXOs together through a series of minting policies and validators, it improves the user experience interacting with smart contracts concurrently.
 
@@ -187,14 +193,18 @@ With this outlined approach of the execution of these technical solutions, we re
 
 Each design pattern was tagged with a release version, enabling the community to track progress and updates.
 
+
 \
+#set text(size: 20pt) // Reset text size to 10pt
+#strong("Slide 9")
+#set text(size: 11pt)  // 
 == Phase 2: Thorough Testing
 
 \ We conducted rigorous testing for all three data structures to ensure their robustness and efficiency. Each data structure was subjected to code reviews and thorough unit tests, with results integrated into a CI/CD pipeline.
 We ensured that all design patterns passed the unit testing phase successfully.
 
 #set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 7")
+#strong("Slide 10")
 #set text(size: 11pt)  // 
 \
 == Phase 3: Comprehensive Documentation
@@ -206,14 +216,14 @@ We ensured that all design patterns passed the unit testing phase successfully.
   - Plutarch: https://github.com/Anastasia-Labs/plutarch-merkle-tree
 
 #set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 8")
+#strong("Slide 11")
 #set text(size: 11pt)  // 
 - *Trie:* Step-by-step instructions and tutorials can be found here;
   - Aiken: https://github.com/Anastasia-Labs/aiken-trie
   - Plutarch: https://github.com/Anastasia-Labs/plutarch-trie
 
 #set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 9")
+#strong("Slide 12")
 #set text(size: 11pt)  // 
 - *Linked List:* Clear diagrams and use cases can be found at;
   - Aiken: https://github.com/Anastasia-Labs/aiken-linked-list.
@@ -226,7 +236,7 @@ All documentation is well-organized, well-structured, and accessible to develope
 // Once your project went live, how did you progress? What learnings and challenges did you find along the way? Were you able to keep the project within the scope of your application? What milestones/KPIs did you set at the outset, and did you achieve them? Importantly, what were the fund challenges, and did you achieve them? What did you not achieve? What other major achievements were there?
 
 #set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 10 ")
+#strong("Slide 13 ")
 #set text(size: 11pt)  // 
 = Achievements and Outcomes
 
@@ -234,11 +244,14 @@ All documentation is well-organized, well-structured, and accessible to develope
 
 - *Implementation of Advanced Data Structures:* Our team has pioneered the development and implementation of advanced data structures (Merkle Trees, Tries, and Linked Lists) in Aiken and Plutarch, enhancing the scalability of DApps on Cardano by allowing for more efficient use of the limited 16kb transaction size and the single UTXO model.
 - *Extensive Documentation and Tutorials:* As you have seen, we are proud to have enriched the Cardano community with educational resources by providing comprehensive documentation and tutorials to help developers understand and utilize these data structures in their projects, covering the gap of limited scaling solution resources.
-- *Collaboration with Industry Leaders:* Our data structures have already garnered interest from industry leaders like SundaeSwap Labs. They successfully integrated our LinkedList implementation into their Single Asset Staking library and Taste Test mechanism, showcasing the real-world applicability of our work.
+- *Collaboration with Industry Leaders:* Some of our data structures have already garnered interest from industry leaders like Sundae Labs. They successfully integrated our LinkedList implementation into their Single Asset Staking library and Taste Test mechanism, showcasing the real-world applicability of our work.
 
 - *Quality Assurance:* Through rigorous code reviews and comprehensive unit tests, we have ensured that our implementations are not only reliable but also efficient, setting a benchmark for future developments in the community.
 #v(10mm)
 
+#set text(size: 20pt) // Reset text size to 10pt
+#strong("Slide 14")
+#set text(size: 11pt)  // 
 = Key Learnings and Challenges
 
 \ Throughout the project, we encountered several challenges and gained valuable insights:
@@ -252,7 +265,7 @@ Aiken’s expressive syntax and strong typing system also contributed to writing
 \ // What next for the product/service you have developed? If appropriate, please tell us about any commercialization/exploitation plans you have now that your funded project is complete, particularly whether you are seeking further funding and what the funding would be used for.
 
 #set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 11")
+#strong("Slide 15")
 #set text(size: 11pt)  // 
 // Aiken property based testing:... https://github.com/aiken-lang/fuzz
 = Future Prospects and Community Impact
@@ -272,6 +285,9 @@ Imagine DApps that can handle more users, transactions, and complex smart contra
 - *Long-Term Commitment:* We will keep our libraries up-to-date with the ever-evolving Cardano ecosystem, ensuring our data structures remain relevant. By maintaining the open-source approach and transparent development process, we believe will inspire confidence and trust within the community.
 
 #v(10mm)
+#set text(size: 20pt) // Reset text size to 10pt
+#strong("Slide 16")
+#set text(size: 11pt)  // 
 = Conclusion:
 
 \ In conclusion, our project has successfully bridged a critical gap in the Cardano ecosystem by providing essential data structures and comprehensive documentation. We believe these tools will significantly enhance the scalability and functionality of Cardano-based applications. 

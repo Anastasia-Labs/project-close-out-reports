@@ -141,10 +141,10 @@ List of project KPIs and how the project addressed them:
 
 - *Extensive documentation and tutorials:* We are proud to have enriched the Cardano community with educational resources by providing comprehensive documentation and tutorials to help developers understand and utilize these data structures in their projects.
 
-// sunday swap and single asset staking for sundayswap linkedlists and taste test  
+// e swap and single asset staking for Sundae Labs linkedlists and taste test  
 // https://sundae.fi/posts/sundaeswap-presents-the-taste-test
 // https://github.com/Anastasia-Labs/single-asset-staking
-- *Collaboration with Sundayswap:* We worked closely with the SundaeSwap team to integrate our linked list implementation into their #single-asset-staking-link library and the SundaeSwap "#taste-test-link" mechanism. This collaboration helped showcase the practical applications of our data structure work and its benefits for real-world Cardano projects. 
+- *Collaboration with Sundae Labs:* We worked closely with the Sundae Labs team to integrate our linked list implementation into their #single-asset-staking-link library and the Sundae Labs "#taste-test-link" mechanism. This collaboration helped showcase the practical applications of our data structure work and its benefits for real-world Cardano projects. 
 
 #v(10mm)
 = Key learnings:
@@ -153,7 +153,7 @@ List of project KPIs and how the project addressed them:
 
 - *Flexibility and efficiency with Linked Lists:*  Leveraging Plutarch's functional programming paradigm and Aiken's robust type system to create Linked Lists that are both efficient and easy to maintain, highlighted the importance of designing for efficient insertion and deletion operations.
 
-- *Managing mutable data with Tries:*  We learned to optimize storage by sharing common prefixes and implementing fast update and lookup operations. This expertise was further demonstrated through our collaboration with SundaeSwap.
+- *Managing mutable data with Tries:*  We learned to optimize storage by sharing common prefixes and implementing fast update and lookup operations. This expertise was further demonstrated through our collaboration with Sundae Labs.
 
 - *Further experience with Plutarch and Aiken:* We got to appreciate Plutarch’s ability to provide more efficient and precise control over data structures, facilitating the construction of intricate data structures and optimizing the performance of smart contracts on the Cardano blockchain because it oprates at a much lower level. Aiken's expressive syntax and strong typing system  also contributed to writing more clear and maintainable code.
 
@@ -163,7 +163,7 @@ List of project KPIs and how the project addressed them:
 \
 *Continuous improvement:* Based on the feedback and insights from the community, we plan to continue refining and optimizing our implementations of Merkle trees, Tries, and Linked Lists in both Aiken and Plutarch.
 
-*Community engagement and collaboration:* We intend to monitor various metrics on GitHub as indicators of community interest and adoption such as tracking the number of stars, forks, pull requests and contributions in the repository. Feedbacks, discussions, and questions on the project’s GitHub repository will also be monitored to assess the level of community engagement with the project. Additionally, we will explore opportunities for further collaboration with other Cardano projects, building on our successful integration with SundaeSwap, to showcase the practical applications of our advanced data structure implementations.
+*Community engagement and collaboration:* We intend to monitor various metrics on GitHub as indicators of community interest and adoption such as tracking the number of stars, forks, pull requests and contributions in the repository. Feedbacks, discussions, and questions on the project’s GitHub repository will also be monitored to assess the level of community engagement with the project. Additionally, we will explore opportunities for further collaboration with other Cardano projects, building on our successful integration with Sundae Labs, to showcase the practical applications of our advanced data structure implementations.
 
 #v(10mm)
 = Final thoughts/comments:
