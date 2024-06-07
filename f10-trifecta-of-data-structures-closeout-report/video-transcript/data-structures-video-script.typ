@@ -215,16 +215,10 @@ We ensured that all design patterns passed the unit testing phase successfully.
   - Aiken: https://github.com/Anastasia-Labs/aiken-merkle-tree
   - Plutarch: https://github.com/Anastasia-Labs/plutarch-merkle-tree
 
-#set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 11")
-#set text(size: 11pt)  // 
 - *Trie:* Step-by-step instructions and tutorials can be found here;
   - Aiken: https://github.com/Anastasia-Labs/aiken-trie
   - Plutarch: https://github.com/Anastasia-Labs/plutarch-trie
 
-#set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 12")
-#set text(size: 11pt)  // 
 - *Linked List:* Clear diagrams and use cases can be found at;
   - Aiken: https://github.com/Anastasia-Labs/aiken-linked-list.
   - Plutarch: https://github.com/Anastasia-Labs/plutarch-linked-list
@@ -234,10 +228,28 @@ All documentation is well-organized, well-structured, and accessible to develope
 
 #v(10mm)
 // Once your project went live, how did you progress? What learnings and challenges did you find along the way? Were you able to keep the project within the scope of your application? What milestones/KPIs did you set at the outset, and did you achieve them? Importantly, what were the fund challenges, and did you achieve them? What did you not achieve? What other major achievements were there?
+#set text(size: 20pt) // Reset text size to 10pt
+#strong("Slide 11")
+#set text(size: 11pt)  // 
+
+Here's an example execution demo of a Merkle Tree
+
+#set text(size: 20pt) // Reset text size to 10pt
+#strong("Slide 12")
+#set text(size: 11pt)  // 
+
+Here's an example execution demo of a Trie
 
 #set text(size: 20pt) // Reset text size to 10pt
 #strong("Slide 13 ")
 #set text(size: 11pt)  // 
+
+Here's an example execution demo of a Linked Lists 
+
+#set text(size: 20pt) // Reset text size to 10pt
+#strong("Slide 14 ")
+#set text(size: 11pt)  // 
+
 = Achievements and Outcomes
 
 \ We are thrilled to share the remarkable outcomes of our project, which we are hopeful will significantly contribute to the Cardano ecosystem:
@@ -250,7 +262,7 @@ All documentation is well-organized, well-structured, and accessible to develope
 #v(10mm)
 
 #set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 14")
+#strong("Slide 15")
 #set text(size: 11pt)  // 
 = Key Learnings and Challenges
 
@@ -265,7 +277,7 @@ Aiken’s expressive syntax and strong typing system also contributed to writing
 \ // What next for the product/service you have developed? If appropriate, please tell us about any commercialization/exploitation plans you have now that your funded project is complete, particularly whether you are seeking further funding and what the funding would be used for.
 
 #set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 15")
+#strong("Slide 16")
 #set text(size: 11pt)  // 
 // Aiken property based testing:... https://github.com/aiken-lang/fuzz
 = Future Prospects and Community Impact
@@ -286,7 +298,7 @@ Imagine DApps that can handle more users, transactions, and complex smart contra
 
 #v(10mm)
 #set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 16")
+#strong("Slide 17")
 #set text(size: 11pt)  // 
 = Conclusion:
 
