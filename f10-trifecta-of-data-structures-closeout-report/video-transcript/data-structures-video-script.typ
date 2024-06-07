@@ -207,17 +207,48 @@ We ensured that all design patterns passed the unit testing phase successfully.
 #strong("Slide 10")
 #set text(size: 11pt)  // 
 \
+
 == Phase 3: Comprehensive Documentation
 
 \ We focused on creating comprehensive, user-friendly, and visually engaging documentation for each data structure. Our aim was to ensure that developers of varying skill levels could understand, implement, and leverage these data structures effectively. Our documentation includes:
+
+#set text(size: 20pt)
+#strong("Slide 11")
+#set text(size: 11pt)  
+
+Here's an example execution demo of a Merkle Tree
+
+#set text(size: 20pt) 
+#strong("Slide 12")
+#set text(size: 11pt) 
 
 - *Merkle Tree:* Detailed guides and practical examples which can be found at.
   - Aiken: https://github.com/Anastasia-Labs/aiken-merkle-tree
   - Plutarch: https://github.com/Anastasia-Labs/plutarch-merkle-tree
 
+#set text(size: 20pt) 
+#strong("Slide 13 ")
+#set text(size: 11pt)  
+
+Here's an example execution demo of a Trie
+
+#set text(size: 20pt) 
+#strong("Slide 14 ")
+#set text(size: 11pt) 
+
 - *Trie:* Step-by-step instructions and tutorials can be found here;
   - Aiken: https://github.com/Anastasia-Labs/aiken-trie
   - Plutarch: https://github.com/Anastasia-Labs/plutarch-trie
+
+#set text(size: 20pt) 
+#strong("Slide 15 ")
+#set text(size: 11pt)  
+
+Here's an example execution demo of a Linked Lists 
+
+#set text(size: 20pt) 
+#strong("Slide 16 ")
+#set text(size: 11pt)  
 
 - *Linked List:* Clear diagrams and use cases can be found at;
   - Aiken: https://github.com/Anastasia-Labs/aiken-linked-list.
@@ -228,26 +259,9 @@ All documentation is well-organized, well-structured, and accessible to develope
 
 #v(10mm)
 // Once your project went live, how did you progress? What learnings and challenges did you find along the way? Were you able to keep the project within the scope of your application? What milestones/KPIs did you set at the outset, and did you achieve them? Importantly, what were the fund challenges, and did you achieve them? What did you not achieve? What other major achievements were there?
-#set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 11")
-#set text(size: 11pt)  // 
-
-Here's an example execution demo of a Merkle Tree
 
 #set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 12")
-#set text(size: 11pt)  // 
-
-Here's an example execution demo of a Trie
-
-#set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 13 ")
-#set text(size: 11pt)  // 
-
-Here's an example execution demo of a Linked Lists 
-
-#set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 14 ")
+#strong("Slide 17 / 18 ")
 #set text(size: 11pt)  // 
 
 = Achievements and Outcomes
@@ -262,7 +276,7 @@ Here's an example execution demo of a Linked Lists
 #v(10mm)
 
 #set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 15")
+#strong("Slide 19")
 #set text(size: 11pt)  // 
 = Key Learnings and Challenges
 
@@ -277,7 +291,7 @@ Aiken’s expressive syntax and strong typing system also contributed to writing
 \ // What next for the product/service you have developed? If appropriate, please tell us about any commercialization/exploitation plans you have now that your funded project is complete, particularly whether you are seeking further funding and what the funding would be used for.
 
 #set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 16")
+#strong("Slide 20")
 #set text(size: 11pt)  // 
 // Aiken property based testing:... https://github.com/aiken-lang/fuzz
 = Future Prospects and Community Impact
@@ -298,14 +312,22 @@ Imagine DApps that can handle more users, transactions, and complex smart contra
 
 #v(10mm)
 #set text(size: 20pt) // Reset text size to 10pt
-#strong("Slide 17")
+#strong("Slide 21")
 #set text(size: 11pt)  // 
 = Conclusion:
 
 \ In conclusion, our project has successfully bridged a critical gap in the Cardano ecosystem by providing essential data structures and comprehensive documentation. We believe these tools will significantly enhance the scalability and functionality of Cardano-based applications. 
 
-Thank you for your support and interest in our work. For more information, visit our GitHub repository at 
+Thank you for your support and interest in our work. 
+
+#set text(size: 20pt) 
+#strong("Slide 22")
+#set text(size: 11pt)  
+
+For more information, visit our GitHub repository at:
+
 https://github.com/Anastasia-Labs/data-structures.
+
 
 If you want to know more about Anastasia Labs or contact us, you can visit 
 
