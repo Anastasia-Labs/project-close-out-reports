@@ -200,6 +200,6 @@ Links to other relevant project sources or documents:
 ])
 #v(10mm)
 
-#align(center)[== Closeout Video <link-other> #link("link11_placeholder")]
+#align(center)[== Closeout Video]
 
-
+#align(center)[#link("https://www.loom.com/share/4ab18822006f45878a2c6020c667ac48?sid=3abb6ecc-c915-473e-ad57-5e0a7abc1b34")[ The Trifecta Of Data Structures-Closeout Video]]

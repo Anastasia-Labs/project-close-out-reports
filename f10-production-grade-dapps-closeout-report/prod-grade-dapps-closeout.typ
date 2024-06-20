@@ -145,4 +145,5 @@ The project successfully addressed a significant challenge within the Cardano ec
 + #link("https://demeter.run/ports")[Smart Contracts on Demeter]
 
 #v(20pt)
-= Close-out Video  : #link("https://www.loom.com/share/edbe02444de74baab114b76275fa1912?sid=4e2e9de3-65cc-46ae-9bc7-ba6f4934a74c")[Production Grade DApps - Closeout Video]
+= Close-out Video  : 
+#link("https://www.loom.com/share/edbe02444de74baab114b76275fa1912?sid=4e2e9de3-65cc-46ae-9bc7-ba6f4934a74c")[Production Grade DApps - Closeout Video]
