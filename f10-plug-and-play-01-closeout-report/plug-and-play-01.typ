@@ -122,7 +122,7 @@
 
 // Display project details
 #set terms(separator:[: ],hanging-indent: 18mm)
-/ Project Name: Plug-and-play Smart Contract API: a game-changing platform to deploy open-source contracts instantly
+/ Project Name: Plug-and-play Smart Contract API: A game-changing platform to deploy open-source contracts instantly
 / URL: #link("link")[#fund-link]
 \
 = List of KPIs
