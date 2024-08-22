@@ -337,7 +337,7 @@ Throughout our project, we faced several challenges that provided us with valuab
 #text(size: 18pt)[*Slide 25*]
 = Conclusion
 \
-In conclusion, we're proud to have introduced the 'Plug and Play 01' smart contract library to the Cardano community. Together with Maestro, we have managed to develop secure, modular, and reusable smart contracts, create comprehensive off-chain SDKs, and providing extensive documentation, ultimately supporting the creation of no-code DApps, making it easier for a wider range of users to build on Cardano.
+In conclusion, we're proud to have introduced the 'Plug and Play 01' smart contract library to the Cardano community. Together with Maestro, we have managed to develop secure, modular, and reusable smart contracts, create comprehensive off-chain SDKs, and provide extensive documentation, ultimately supporting the creation of no-code DApps, making it easier for a wider range of users to build on Cardano.
 
 These achievements enhance the capabilities of DApps on Cardano, offering developers valuable tools to innovate and secure their applications. The no-code DApps feature, in particular, opens up blockchain development to those without programming skills, democratizing access to this technology.
 
