@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="node_modules/reveal.js/dist/theme/blood.css">
 </head>
 <body>
+    <style>
+      .reveal .slide-number {
+        right: auto;
+        left: 8px;
+        top: auto;
+        bottom: 8px;
+      }
+    </style>
     <div class="reveal">
         <div class="slides">
             <section data-markdown="slides.md" data-separator="^---" data-separator-vertical="^----"></section>
@@ -20,6 +28,7 @@
     <script>
         Reveal.initialize({
             plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+            slideNumber: 'c/t',
             parallaxBackgroundImage: 'assets/bg.jpg',
             parallaxBackgroundSize: '2560px 2200px'
         });

@@ -8,7 +8,7 @@
 ---
 
 ### Smart Handles
-On-chain framework for using dapps without going through their official frontends
+On-chain framework for using DApps without going through their official frontends
 
 ---
 
@@ -20,13 +20,15 @@ On-chain framework for using dapps without going through their official frontend
 
 - All-round suite for easy product deployment
 
----
-
-### How does it work?
+- Accompanied by a wallet PR as guidance for wallets to follow
 
 ---
 
-1. User sends some ADA to `$ada-to-min` instance, reserving 1 ADA for the routing agent
+### What will the experience look like?
+
+---
+
+1. User sends some ADA to e.g. `$ada-to-min` instance, reserving 1 ADA for the routing agent
 
 2. Routing agent handles the route and collects its fee
 
@@ -34,16 +36,200 @@ On-chain framework for using dapps without going through their official frontend
 
 ---
 
-### On-Chain Logic
+### Objectives
+### &
+### Challenges
 
 ---
 
-- Router is paid
+- Create an abstract contract as a foundation for implementing dedicated routing endeavors
 
-- Funds go to the destination (specified as a parameter)
-
-- Custom validation holds
+- Accompany the contract with an off-chain SDK for developers
 
 ---
 
+- Complement the suite with a CLI generator package so that smart handles instances can be utilized with much more ease
 
+---
+
+- Implement a simple (ADA-MIN swap via Minswap V2) and advanced (arbitrary swaps via MinswapV1) instances of smart handles as examples
+
+---
+
+- Submit sample transactions on preprod testnet
+
+- Open a PR to an open source wallet, providing documentation for how users can benefit from the ADA-MIN smart handles instance
+
+---
+
+### 5
+### Phases
+### of
+### Development
+
+---
+
+### 1. Contract & UX Design
+
+- Guaranteed integrity for all instances
+
+- Focus on convenience for both users and router agents
+
+---
+
+### 2. On-Chain Development
+
+- Minimal performance cost by employing Plutarch for the wrapper contract
+
+---
+
+### 3. Off-Chain SDK
+
+- Consistent and robust interface between all endpoints
+
+---
+
+### 4. CLI Agent
+
+- Convenient experience for users and router agents via a CLI application generator
+
+---
+
+### 5. Wallet Integration
+
+- PR in an open source wallet (GameChanger) to provide a basic guideline for wallets
+
+---
+
+## Overview
+
+---
+
+### On-Chain
+### Stipulations
+
+---
+
+1. Incentive for decentralized agents
+
+2. Guaranteed route destination
+
+3. Support for "single" and "batch" targets
+
+4. Full ownership of funds for users in case of failed routes
+
+5. Flexibility through advanced datums
+
+---
+
+### Off-Chain
+### Endpoints
+
+<small>All endpoints comprise of both single and batch target,
+<br/>while also supporting simple and advanced cases</small>
+
+---
+
+### 1. Request
+
+- Specify assets to be locked at the instance for the simple case
+- Specify a multitude of values for the advanced case, such as:
+    - Possible owner
+    - Router fee
+    - Reclaim router fee
+    - etc.
+
+---
+
+### 2. Reclaim
+
+- No required values for the simple case
+- For advanced reclaims:
+    - Output datum maker function
+    - Configurations for potential required mint
+    - Additional callback for tweaking the transaction
+
+---
+
+### 3. Route
+
+- Output datum maker functions for simple and advanced cases
+- Required mint configurations for the advanced case
+- Additional callback for tweaking the transaction for both
+
+---
+
+### CLI Agent
+
+<small>Generated applications will offer 3 endpoints</small>
+
+---
+
+### `monitor`
+
+- Primary endpoint for router agents
+
+- Periodic polling an instance's address
+
+- Routing upcoming requests and accruing the fees
+
+- Optional flag for advanced reclaims
+
+---
+
+### `submit-simple`
+
+- Lovelace count to be locked
+
+- Along with any assets
+
+---
+
+### `submit-advanced`
+
+- Lovelace count to be locked
+
+- Along with any assets
+
+- Additional values corresponding directly to the off-chain SDK
+
+---
+
+## Key Achievements
+
+---
+
+- Development of a Wrapper Contract
+
+- Development of a Complete Off-Chain Suite
+
+- Provision of a Sample Reference for Instance Developers
+
+---
+
+## Key Learnings
+
+---
+
+- Ups and Downs of Adding Features to Frameworks
+
+- Importance of Emulated Tests
+
+- Importance of Testnet Transactions
+
+---
+
+## Next Step
+
+Support for Datum-less UTxOs
+
+---
+
+### Repositories
+
+- On-Chain Contract 
+    - https://github.com/Anastasia-Labs/smart-handles
+- Off-Chain SDK
+    - https://github.com/Anastasia-Labs/smart-handles-offchain
+- CLI Agent
+    - https://github.com/Anastasia-Labs/smart-handles-agent
