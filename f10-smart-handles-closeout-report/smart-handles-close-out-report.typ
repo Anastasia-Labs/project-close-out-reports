@@ -116,115 +116,106 @@ source wallets for supporting smart handles.
 #v(20pt)
 = Planning
 
-Our project was divided into three main phases:
+Our project comprised of five main phases:
 #v(60pt)
-=== Design and Documentation
-We started by identifying the most unintuitive design patterns and documenting them in detail. We published this documentation on our GitHub repository and contributed to other resources as well
+=== Design
+The wrapper contract needed to provide a few stipulations (detailed further
+down) in order to guarantee integrity for all instances. Furthermore,
+convenience for both users and router agents were of utmost importance.
 
-=== Library Development
-We focused on creating reusable, efficient code and implemented key design patterns and wrapper functions for both Plutarch and Aiken, focusing on usability and performance optimization.
+=== On-Chain Development
+As it is inevitable for most abstractions to introduce overheads, we aimed to
+minimize the performance cost by employing Plutarch for the wrapper contract.
 
-=== Testing
-No implementation is complete without thorough testing. We developed comprehensive testing suites, including unit tests and property-based tests, to ensure the reliability and correctness of what we implemented
+=== Off-Chain SDK
+Adhering to the same interface introduced in our other off-chain SDKs, we
+provided a consistent and robust interface between all endpoints. Due to the
+abstract nature of this contract, the SDK requires the users to provide
+functions with predefined structures.
 
-#pagebreak()
-#v(20pt)
+=== CLI Agent
+To facilitate a convenient experience for router agents, we also developed a CLI
+application generator function that allows instances to easily provide a simple
+CLI which works through standard input and accompanying JSON files.
 
-= Recap - Design Patterns
-
-#v(20pt)
-
-1 - *Enhanced Enum Data Mapping Functions*
-
-Streamlined implementation of simple redeemers, reducing complexity and lowering costs. This pattern directly maps enumeration cases to integer values, improving efficiency over standard mapping functions
-
-2 - *Stake Validator*
-
-Optimized transaction-level validation using the "withdraw zero trick." This approach significantly reduced script size and ExUnits cost, with theoretical 5-10x efficiency improvement for transaction-level validation compared to traditional implementations
-
-
-#box(height: 150pt,
- columns(3, gutter: 11pt)[
-   #figure(
-  image(fit: "contain", height: 100%, width: 100%,"Stake-val1.png"),
-
-)
-   #figure(
-  image(fit: "contain", height: 100%, width: 100%,"Stake-val2.png"),
-
-)
-   #figure(
-  image(fit: "contain", height: 100%, width: 100%,"Stake-val3.png"),
-
-)
-])
-
-3 - *Merkelized Validators*
-
-Addressed script size limitations by leveraging reference scripts and the "withdraw zero trick." This pattern allows for powerful optimizations while keeping main validator size "within limits", effectively creating smart contracts with near-infinite size potential
+=== Wallet Integration
+Since smart handles instances can only work with datums, wallets needed minor
+configurations in order to provide the intended level of convenience for their
+users. By openning a PR in an open source wallet (GameChanger), we provided the
+basic guideline for wallets so that they could implement this feature if
+desired.
 
 #pagebreak()
 #v(20pt)
-4 - *Transaction Level Validation - Minting Policy*
 
-Optimized batch processing of UTxOs by delegating validation to a minting script executed once per transaction. This significantly improves efficiency for high-throughput applications, potentially lowering transaction costs.
+= Recap - Smart Handles
 
-#box(height: 150pt,
- columns(3, gutter: 11pt)[
-   #figure(
-  image(fit: "contain", height: 100%, width: 100%,"tx-level-val1.png"),
-
-)
-   #figure(
-  image(fit: "contain", height: 100%, width: 100%,"tx-level-val2.png"),
-
-)
-   #figure(
-  image(fit: "contain", height: 100%, width: 100%,"tx-level-val3.png"),
-
-)
-])
-
-5 - *Strict && Checks*
-
-Addressed inconsistencies in boolean operations across Plutus, Plutarch, and Aiken, providing predictable compilation outcomes and optimizing transaction costs
-
-6 - *UTxO Indexer*
-
-Introduced UTxO indices within the redeemer, allowing validators to efficiently sort and pair inputs with outputs, optimizing transactions with multiple inputs and outputs
-
-
-#box(height: 150pt,
- columns(1, gutter: 11pt)[
-   #figure(
-  image(fit: "contain", height: 100%, width: 100%,"utxo-indexer.png"),
-
-)
-])
-
-#pagebreak()
 #v(20pt)
-7 - *TxInfoMint Normalization*
 
-Addressed the challenge of automatic 0 Lovelace value appending in txInfoMint field, mitigating unintended consequences
+== On-Chain Stipulations
 
-8 - *Validity Range Normalization*
+- The contract needed to provide incentive for decentralized agents to carry out
+  requests of smart handles instances, therefore ensuring agents getting their
+  fees was one of the requirements
+- Instances needed to be parameterized by their destination addresses so that
+  the contract could guarantee their proper continuations without fault
+- Two variants must have been supported (which we call "targets"): single, for
+  instances that only supported single routes per transactions, and batch, for
+  contracts that utilized a staking script to support multiple routes per
+  transactions with minimal overhead
+- Users needed to be able to cancel their requests at will
+- As some dApp instances could benefit from other values provided in a
+  transaction, the framework needed to also provide an advanced interface on top
+  of the simple case (which only housed a users' addresses)
 
-Introduced a normalized representation of time ranges, reducing ambiguity and eliminating redundant or meaningless instances.
+== Off-Chain Endpoints
+All endpoints comprise of both single and batch target, while also supporting
+simple and advanced cases.
 
+=== Request
+The simple variant only requires specifying assets to be locked at the instance.
+The advanced variant on the other hand, is much more involved, requiring a
+multitude of specs:
+- Whether an owner is associated with the request
+- How much is the router fee for routing to the destination address
+- Router fee for invoking the reclaim endpoint
+- Required mint for the routing scenario
+- Required mint for the reclaim scenario
+- An additional callback for tweaking the transaction as desired
 
-#box(height: 120pt,
- columns(2, gutter: 11pt)[
-   #figure(
-  image(fit: "contain", height: 100%, width: 100%,"val-range-norm1.png"),
+=== Reclaim
+Similar to the request endpoint, only the advanced datum requires considerable
+configuration:
+- An output datum maker function, which provides the users with inputs assets
+  and all the fields stored in the advanced datum
+- A set of configurations for handling a required mint for reclaim
+- An additional callback for tweaking the transaction as desired
 
-)
-   #figure(
-  image(fit: "contain", height: 100%, width: 100%,"val-range-norm2.png"),
+=== Route
+Unlike other endpoints, the interface here offers both simple and advanced cases
+with various configurations:
+- Both require datum maker functions, the only difference between the two is the
+  input datum provided (simple for one, advanced for the other)
+- The advanced case expects the required mint configurations for routing
+- Both take an additional callback for tweaking the transaction as desired
 
-)
-])
+== CLI Agent
+Given a `Config` value (a datatype defined in the package), users can generate a
+CLI application with three endpoints:
 
+=== `monitor`
+The primary endpoint for router agents, polling an instance's address
+periodically to route upcoming requests and accruing the fees. With a
+`--reclaim` flag the endpoint aims to invoke the advanced reclaim logic of the
+instance.
+
+=== `submit-simple`
+This endpoint will only require the Lovelace count to be provided, along with
+any additional assets to be locked at the instance.
+
+=== `submit-advanced`
+In addition to the Lovelace and assets arguments, this endpoint takes additional
+values to correspond directly to the off-chain SDK's advanced request endpoint.
 
 
 #pagebreak()
