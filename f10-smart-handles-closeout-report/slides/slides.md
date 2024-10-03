@@ -38,8 +38,12 @@ On-chain framework for using dapps without going through their official frontend
 
 ---
 
-- Router is reimbursed
+- Router is paid
 
 - Funds go to the destination (specified as a parameter)
 
 - Custom validation holds
+
+---
+
+

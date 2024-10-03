@@ -2,11 +2,11 @@
 
 1. Install and run the local server:
 ```sh
-pnpm start && pnpm start
+pnpm install && pnpm start
 
 # or
 
-npm start && npm start
+npm install && npm start
 ```
 
 2. Open your browser and navigate to `localhost:8000`
