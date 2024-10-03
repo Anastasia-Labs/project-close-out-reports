@@ -101,11 +101,11 @@ Since at the time of proposal Cardano contracts where incapable of handling
 datum-less UTxOs, this project also includes providing configurations to open
 source wallets for supporting smart handles.
 
-#v(60pt)
-
+#pagebreak()
+#v(20pt)
 = Objectives and Challenges 
-
-- Create an abstract contract as a foundation for implementing dedicated routing endeavours
+\
+- Create an abstract contract as a foundation for implementing dedicated routing endeavors
 - Accompany the contract with an off-chain SDK for developers
 - Complement the suite with a CLI generator package so that smart handles instances can be utilized with much more ease
 - Implement a simple (ADA-MIN swap via Minswap V2) and advanced (arbitrary swaps via MinswapV1) instances of smart handles as examples
@@ -223,7 +223,7 @@ values to correspond directly to the off-chain SDK's advanced request endpoint.
 #v(20pt)
 = Detailed list of KPIs and references
 #v(60pt)
-#box(height: 360pt,
+#box(height: 240pt,
   stroke: none,
   columns(2, gutter: 21pt)[
     == Challenge KPIs
@@ -284,10 +284,10 @@ transactions submitted on chain, approvable by anyone.
 = Next steps <next-steps>
 #v(10pt)
 === Support for Datum-less UTxOs
-With activation of CIP-67, we can now avoid the required configuration by the
-wallets, and support direct deposits without any maintenance. This'll offer the
-true vision of this product where users can interact with developed instances
-from any wallet and/or off-chain frameworks.
+With activation of CIP-69, we can now avoid the required configuration by the
+wallets, and support direct deposits without any maintenance. This will offer
+the true vision of this product where users can interact with developed
+instances from any wallet and/or off-chain frameworks.
 
 #v(15pt)
 = Resources
