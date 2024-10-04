@@ -24,7 +24,9 @@ On-chain framework for using DApps without going through their official frontend
 
 ---
 
-### What will the experience look like?
+### What will
+### the experience
+### look like?
 
 ---
 
@@ -42,23 +44,19 @@ On-chain framework for using DApps without going through their official frontend
 
 ---
 
-- Create an abstract contract as a foundation for implementing dedicated routing endeavors
+- Create an abstract contract with flexibility
 
-- Accompany the contract with an off-chain SDK for developers
+- Accompany the contract with an off-chain SDK
 
----
-
-- Complement the suite with a CLI generator package so that smart handles instances can be utilized with much more ease
+- Complementary CLI generator package
 
 ---
 
-- Implement a simple (ADA-MIN swap via Minswap V2) and advanced (arbitrary swaps via MinswapV1) instances of smart handles as examples
-
----
+- Implement simple and advanced example instances
 
 - Submit sample transactions on preprod testnet
 
-- Open a PR to an open source wallet, providing documentation for how users can benefit from the ADA-MIN smart handles instance
+- Open a PR to an open source wallet
 
 ---
 
