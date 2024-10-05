@@ -114,11 +114,11 @@ source wallets for supporting smart handles.
 
 #pagebreak()
 #v(20pt)
-= Planning
+= Development Phases
 
 Our project comprised of five main phases:
 #v(60pt)
-=== Design
+=== Contract & UX Design
 The wrapper contract needed to provide a few stipulations (detailed further
 down) in order to guarantee integrity for all instances. Furthermore,
 convenience for both users and router agents were of utmost importance.
