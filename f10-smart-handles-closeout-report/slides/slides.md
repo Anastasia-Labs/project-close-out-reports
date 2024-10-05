@@ -1,5 +1,3 @@
----
-
 <img src="assets/logo02.png" alt="Anastasia Labs Logo" width="480">
 
 #### Smart Handles

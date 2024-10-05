@@ -13,9 +13,6 @@ npm install && npm start
 
 2. Open your browser and navigate to `http://localhost:8000` or `http://127.0.0.1:8000/` to see the presentation
 
-The first page is left empty as there seems to be a bug with `reveal.js` (the
-package used for generating the slides).
-
 If you need to tweak/refine any texts in the slides, simply find them in
 [`slides.md`](slides.md), and make changes as desired. The running server will
 automatically update and refresh the presentation.
@@ -32,14 +29,11 @@ bottom-left corner of the presentation.
 ## Transcript
 
 ### Slide 1
-\<Blank\>
-
-### Slide 2
 
 Hello Cardano, this is Mladen from Anastasia Labs, and today I'd like to present
 our closeout report for Smart Handles, which we initially called Smart Beacons.
 
-### Slide 3
+### Slide 2
 
 OK let's start by getting a better understanding of what Smart Handles is.
 
@@ -49,7 +43,7 @@ will be able to send funds to, in order to interact with the underlying DApp.
 This enhances decentralization as it enables users to not be constrained by the
 websites of these DApps.
 
-### Slide 4
+### Slide 3
 
 The framework itself makes minimal constrains, while also providing enough
 flexibility so that developers can have as much freedom as possible to implement
@@ -71,11 +65,11 @@ Finally, we've also opened a PR to GameChanger wallet, which can be used as a
 guideline for other wallet developers to support interactions with Smart
 Handles instances.
 
-### Slide 5
+### Slide 4
 
 Now let's take a look at what one of these instance can look like in practice.
 
-### Slide 6
+### Slide 5
 
 Imagine we have a swap Smart Handles instance for ADA to MIN via Minswap, and
 we store `$ada-to-min` ADA Handle in its address.
@@ -92,11 +86,11 @@ market price.
 You can see that this only required the user's wallet to support Smart Handles,
 and there was no need for the user to open up Minswap's platform.
 
-### Slide 7
+### Slide 6
 
 In order to deliver this product, we had to meet some concrete goals.
 
-### Slide 8
+### Slide 7
 
 First and foremost, the contract needed to be abstract enough to offer
 a reasonable flexibility for developers.
@@ -106,7 +100,7 @@ Of course the contract needed to be accompanied by an off-chain package.
 On top of that, we also wanted further convenience, specifically for the routing
 agents, so that they could support this initiative more easily.
 
-### Slide 9
+### Slide 8
 
 To simplify the learning curve for developers, we also wanted to have extensive
 examples to be used as references.
@@ -117,28 +111,28 @@ reliable proof of accomplishment.
 Finally, a concrete guide for wallet developers to support Smart Handles was
 essential.
 
-### Slide 10
+### Slide 9
 
 So we divided the road map into 5 phases.
 
-### Slide 11
+### Slide 10
 
 First, designing the protocol and the overal interface provided by the suite.
 This gave us a clear path for development.
 
-### Slide 12
+### Slide 11
 
 Developing the on-chain contracts was the second step. Knowing it's generally
 inevitable for abstractions to introduce overheads, we employed Plutarch to
 minimize this performance cost.
 
-### Slide 13
+### Slide 12
 
 Following our other off-chain SDKs, we used the same interface for all the
 endpoints. This resulted in a consistent API, not only between all the endpoints
 of this project, but also accross our other off-chain SDKs.
 
-### Slide 14
+### Slide 13
 
 In order to easily reuse the infrastructure laid out in our off-chain SDK, we
 opted to implement the CLI application in Typescript.
@@ -147,20 +141,20 @@ The package we implemented, requires the users to provide a set of configuration
 values and functions, and it'll generate a CLI application for their instances
 with a robust and familiar argument interface.
 
-### Slide 15
+### Slide 14
 
 We found GameChanger wallet to be the most flexible open-source wallet in order
 to open a PR for integration.
 
-### Slide 16
+### Slide 15
 
 Now let's take a closer look at each of the components.
 
-### Slide 17
+### Slide 16
 
 First the on-chain contract.
 
-### Slide 18
+### Slide 17
 
 First two primary validations are agent imbursement, and guaranteed route
 destination.
@@ -185,7 +179,7 @@ which we won't delve into here.
 Similarly, routing of advanced datums also provides instances' logics with much
 more data and flexibility. We'll briefly take a deeper look later.
 
-### Slide 19
+### Slide 18
 
 Let's see all the off-chain endpoints for interacting with a Smart Handles
 instance.
@@ -193,7 +187,7 @@ instance.
 All endpoints support both single and batch targets, and also simple and
 advanced datums.
 
-### Slide 20
+### Slide 19
 
 We refer to sending funds to a Smart Handles instance as "requests," since they
 are "route requests" to be processed by routing agents.
@@ -211,7 +205,7 @@ However, for the advanced datum, a few more values must be provided:
 - Two mint configurations, one for routing and the other for advanced reclaims.
 - Finally, advanced datums offer a field for providing arbitrary data.
 
-### Slide 21
+### Slide 20
 
 Since routes, whether simple or advanced, are primarily meant to be produced at
 another script address, both configurations need to specify how the output
@@ -223,7 +217,7 @@ be provided.
 Both simple and advanced datums also allow any additional tweaks to the
 transaction.
 
-### Slide 22
+### Slide 21
 
 For reclaiming of simple requests, no values are required to be provided.
 Because only owners themselves can reclaim their requests.
@@ -234,11 +228,11 @@ configuration must specify:
 - If there are any mint requirements, they too should be specified,
 - Any additional tweaks to the transaction can also be provided.
 
-### Slide 23
+### Slide 22
 
 Now let's take a look at the CLI endpoints.
 
-### Slide 24
+### Slide 23
 
 `monitor` is the primary endpoint for agent. It'll keep polling the instance's
 address, looking for requests to route.
@@ -247,35 +241,35 @@ Whenever it finds one, it tries to perform the route and grab its fee.
 
 This endpoint also offers an optional flag for switching to advanced reclaims.
 
-### Slide 25
+### Slide 24
 
 As its name suggest, `submit-simple` is for producing simple requests at the
 instance's address. It only requires the amount of Lovelaces that should be
 locked, and optionally any additional assets.
 
-### Slide 26
+### Slide 25
 
 For `submit-advanced`, on top of funds to lock, advanced datum fields must also
 be specified. The generated application supports provision of additional
 information via an extra JSON file.
 
-### Slide 27
+### Slide 26
 
 So we can summarize what we built in 3 main components.
 
-### Slide 28
+### Slide 27
 
 - The on-chain framework contract
 - A complete off-chain suite, both the SDK and its corresponding CLI generator
 - Simple and advanced examples to server as a reference for easier familiarity
   with the suite
 
-### Slide 29
+### Slide 28
 
 This was a relatively involved project and took us a while to reach the finish
 line. But we learnt a lot along the way.
 
-### Slide 30
+### Slide 29
 
 First and foremost, we gained a better understanding of what it means to support
 a wide range of flexibility in a framework. While this gives much more freedom
@@ -285,7 +279,7 @@ propagate its support throughout all the components of our software suite.
 Consequently, tests, both emulated and on-chain, proved of utmost importance.
 They were our firt line of assurance whenever we introduced a new feature.
 
-### Slide 31
+### Slide 30
 
 At the time of our proposal, Cardano contracts were incapable of spending UTxOs
 that had no datums attached to them. But now, with Plutus V3, this is no longer
@@ -293,7 +287,7 @@ the case and makes the main vision of this solution attainable. Meaning, users
 will be able to send funds to deployed Smart Handles without any configurations
 required, that is, using any wallet whatsoever.
 
-### Slide 32
+### Slide 31
 
 These are the 3 repositories of Smart Handles, please consider giving them
 starts!
