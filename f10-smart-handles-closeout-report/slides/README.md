@@ -213,4 +213,89 @@ However, for the advanced datum, a few more values must be provided:
 
 ### Slide 21
 
+Since routes, whether simple or advanced, are primarily meant to be produced at
+another script address, both configurations need to specify how the output
+datum must be built.
 
+Additionally, if the advanced datum has any mint requirements, they too need to
+be provided.
+
+Both simple and advanced datums also allow any additional tweaks to the
+transaction.
+
+### Slide 22
+
+For reclaiming of simple requests, no values are required to be provided.
+Because only owners themselves can reclaim their requests.
+
+For the advanced case however, it is very similar to routing. So the
+configuration must specify:
+- How the output datum must be built, 
+- If there are any mint requirements, they too should be specified,
+- Any additional tweaks to the transaction can also be provided.
+
+### Slide 23
+
+Now let's take a look at the CLI endpoints.
+
+### Slide 24
+
+`monitor` is the primary endpoint for agent. It'll keep polling the instance's
+address, looking for requests to route.
+
+Whenever it finds one, it tries to perform the route and grab its fee.
+
+This endpoint also offers an optional flag for switching to advanced reclaims.
+
+### Slide 25
+
+As its name suggest, `submit-simple` is for producing simple requests at the
+instance's address. It only requires the amount of Lovelaces that should be
+locked, and optionally any additional assets.
+
+### Slide 26
+
+For `submit-advanced`, on top of funds to lock, advanced datum fields must also
+be specified. The generated application supports provision of additional
+information via an extra JSON file.
+
+### Slide 27
+
+So we can summarize what we built in 3 main components.
+
+### Slide 28
+
+- The on-chain framework contract
+- A complete off-chain suite, both the SDK and its corresponding CLI generator
+- Simple and advanced examples to server as a reference for easier familiarity
+  with the suite
+
+### Slide 29
+
+This was a relatively involved project and took us a while to reach the finish
+line. But we learnt a lot along the way.
+
+### Slide 30
+
+First and foremost, we gained a better understanding of what it means to support
+a wide range of flexibility in a framework. While this gives much more freedom
+for instance developers, it also meant that for each feature we added, we had to
+propagate its support throughout all the components of our software suite.
+
+Consequently, tests, both emulated and on-chain, proved of utmost importance.
+They were our firt line of assurance whenever we introduced a new feature.
+
+### Slide 31
+
+At the time of our proposal, Cardano contracts were incapable of spending UTxOs
+that had no datums attached to them. But now, with Plutus V3, this is no longer
+the case and makes the main vision of this solution attainable. Meaning, users
+will be able to send funds to deployed Smart Handles without any configurations
+required, that is, using any wallet whatsoever.
+
+### Slide 32
+
+These are the 3 repositories of Smart Handles, please consider giving them
+starts!
+
+And with that, I thank you for your time, and wish you a great day!

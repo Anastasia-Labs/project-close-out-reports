@@ -139,21 +139,21 @@ On-chain framework for using DApps without going through their official frontend
 
 ---
 
-### 2. Reclaim
+### 2. Route
+
+- Output datum maker functions for simple and advanced cases
+- Required mint configurations for the advanced case
+- Additional callback for tweaking the transaction for both
+
+---
+
+### 3. Reclaim
 
 - No required values for the simple case
 - For advanced reclaims:
     - Output datum maker function
     - Configurations for potential required mint
     - Additional callback for tweaking the transaction
-
----
-
-### 3. Route
-
-- Output datum maker functions for simple and advanced cases
-- Required mint configurations for the advanced case
-- Additional callback for tweaking the transaction for both
 
 ---
 
