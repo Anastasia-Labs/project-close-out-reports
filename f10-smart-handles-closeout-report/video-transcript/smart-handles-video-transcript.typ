@@ -27,7 +27,7 @@
 #set text(20pt, fill: white)
 
 #align(center)[#strong[Smart Handles]]
-#align(center)[Project Closeout Report Script]
+#align(center)[Project Closeout Video Transcript]
 
 #v(5cm)
 
