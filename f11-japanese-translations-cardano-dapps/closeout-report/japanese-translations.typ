@@ -84,7 +84,7 @@
 #v(5pt)
 Japan has the biggest Cardano community in the world in terms of membership and in terms of ADA holdings and so many of them are very active.However, one of the issues that they are facing is that they have a huge language barrier.Many of the community members don't speak English, don't read English. That means there is isolation between Japan and Japanese community and the rest of the world.
 
-Our project is a coproposal with Yuta , a community meember from Japan and is aimed to reduce this barrier for Japanese ADA holders by providing translations to some of the popular Cardano DApps and thus reduces the risks associated with misinterpretations in DeFi transactions.
+Our project is a coproposal with Yuta , a community member from Japan and is aimed to reduce this barrier for Japanese ADA holders by providing translations to some of the popular Cardano DApps and thus reduces the risks associated with misinterpretations in DeFi transactions.
 
 = List of KPIs  
 == Challenge KPIs 
