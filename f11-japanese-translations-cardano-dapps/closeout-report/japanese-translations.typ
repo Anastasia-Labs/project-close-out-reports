@@ -164,4 +164,4 @@ The project enhances accessibility for Japanese users, driving long-term growth 
 
 #align(center)[= Close-out Video ] 
 
-#align(center)[#link("")[High Quality Japanese Translations for Popular Cardano DApps]]
+#align(center)[#link("https://www.youtube.com/watch?v=Kk2lRwTjsmI")[High Quality Japanese Translations for Popular Cardano DApps]]
