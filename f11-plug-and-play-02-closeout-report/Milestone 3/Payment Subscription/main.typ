@@ -7,9 +7,12 @@
 #let lucid-evolution-git-link = link("https://github.com/Anastasia-Labs/lucid-evolution")[Main Github Repo]
 #let project_link = link("https://projectcatalyst.io/funds/11/cardano-use-cases-product/anastasia-labs-x-maestro-plug-n-play-20")[Catalyst Proposal]
 #let milestone_link = link("https://milestones.projectcatalyst.io/projects/1100025/milestones/3")[Milestone 3]
-#let maestro_link = link("https://www.gomaestro.org/smart-contracts")[Maestro Platform]
+#let maestro_link = link("https://www.gomaestro.org/smart-contracts")[Maestro Smart Contract Platform]
+#let multisig_sdk_link = link("https://github.com/Anastasia-Labs/aiken-multisig-offchain")[Multisig Offchain SDK]
+#let subscription_offchain_link = link("https://github.com/Anastasia-Labs/payment-subscription-offchain")[Payment Subscription Offchain SDK]
 
-
+#let subscription_video_link = link("https://www.youtube.com/watch?v=G-lBB6MX3lg")[Payment Subscription Tutorial Video]
+#let multisig_video_link = link("https://www.youtube.com/watch?v=AtnnbzBWB-I")[Upgradable Multisig Tutorial Video]
 
 #set page(
   background: image-background,
@@ -223,19 +226,29 @@ The following items have been provided as evidence of the successful completion 
 #v(50pt)
 
 \
-- *Live Endpoints:* 
++ *Live Endpoints:* 
 
-  Both the upgradable multisignature and subscription payments smart contracts are live and operational at Maestro’s smart contracts portal.
+  Both the upgradable multisignature and subscription payments smart contracts are live and operational at #maestro_link.
 
-\
-- *Repository Documentation:*
+  \
++ *Repository Documentation:*
 
-  Detailed documentation, test reports, and usage guides can be found at the project’s GitHub repository (https://github.com/Anastasia-Labs/plug-n-play-contracts).
+  Detailed documentation, test reports, and usage guides can be found at the project’s GitHub repository (https://github.com/Anastasia-Labs/plug-n-play-contracts). 
+  
+    Specifically:
 
-\
-- *Video Demonstration:*
+    - #multisig_sdk_link
+    
+    - #subscription_offchain_link
+
+  \
++ *Video Demonstration:*
 
   A video demo showcasing the practical use of Maestro’s API endpoints for both smart contracts is available and forms a key piece of evidence supporting milestone completion.
+
+  - #subscription_video_link
+  
+  - #multisig_video_link
 
 #pagebreak()
 #v(50pt)
