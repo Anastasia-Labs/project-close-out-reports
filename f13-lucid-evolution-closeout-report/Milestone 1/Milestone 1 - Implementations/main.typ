@@ -217,6 +217,7 @@ A comprehensive suite of unit tests was implemented to verify bidirectional conv
 
   - Step-by-step guides on testing the roundtrip encoding/decoding process.
 
+\
   *Evidence of Validation:*
 
   A demonstration PDF report has been generated, which showcases the Effect Schema’s validation features and provides a clear narrative of the testing outcomes. The documentation and demonstration materials are all hosted on the GitHub repository.

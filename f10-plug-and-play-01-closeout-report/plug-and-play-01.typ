@@ -112,7 +112,7 @@
     ]
     #v(-6mm)
     #align(right)[
-      #counter(page).display(  // Page numbering
+      #context counter(page).display(  // Page numbering
         "1/1",
         both: true,
       )
@@ -135,7 +135,8 @@
 
   + *Driving Ecosystem Growth and Adoption:* Our smart contract-as-a-service platform simplifies integration and deployment, attracting more developers to the Cardano ecosystem. Developers will have access to fully integrated smart contracts and be able to interact with them simply via APIs. This will revolutionize Cardano dApp development, unleashing the full potential of Cardano. By offering a standardized interface and best practices, we make it easier for both small teams and large enterprises to build on Cardano.
 
-\
+#pagebreak()
+
 == Project KPIs
 \
 + *Provide Secure, Modular and Reusable APIs :* The team developed robust, optimized, and well-tested implementations of Single Asset Staking Contracts, Linear Vesting Contracts, and Direct Offer Contracts. These solutions aim to reduce the time required for developers to build and deploy smart contracts, from weeks or months to even mere minutes, depending on the developer's skill level. By providing secure, modular, and reusable APIs, we address the community's needs for reliable and efficient tools.

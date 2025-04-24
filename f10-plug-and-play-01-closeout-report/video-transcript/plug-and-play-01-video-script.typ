@@ -105,7 +105,7 @@
     ]
     #v(-6mm)
     #align(right)[
-      #counter(page).display(  // Page numbering
+      #context counter(page).display(  // Page numbering
         "1/1",
         both: true,
       )
