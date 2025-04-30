@@ -90,7 +90,7 @@
       #set text(size: 11pt, fill: black)
       *Anastasia Labs – *
       #set text(size: 11pt, fill: gray)
-      *Lucid Evolution*
+      *Lucid Evolution 2.0*
       #v(-3mm)
       Blueprint & Enhanced Plutus Schema - Milestone 1
       #v(-3mm)
@@ -108,26 +108,24 @@
 // #set terms(separator:[: ],hanging-indent: 18mm)
 #align(center)[
   #set text(size: 18pt)
-  #strong[Blueprint & Enhanced Plutus Schema]]
-#v(20pt)
-\
+  #strong[Blueprint & Enhanced Plutus Schema]
 
+  #strong[Core Schema Implementation]]
+#v(50pt)
 #set heading(numbering: "1.")
 // #show heading: set text(rgb("#c41112"))
 
-
-#v(50pt)
-
-= Executive Summary
+= Introduction
 \
-This first milestone of the Lucid Evolution 2.0 project is focused on implementing the core data schema structures using Effect Schema to support Plutus data types. 
+This first milestone of Lucid Evolution 2.0 (Blueprint & Enhanced Plutus Schema) is focused on implementing the core data schema structures using *Effect Schema* to support Plutus data types. 
 
 This report summarizes the design, implementation, testing, and documentation efforts aimed at providing a flexible, type-safe infrastructure for handling complex Cardano data types.
 
 The work ensures that the core schema not only facilitates compile-time type safety through TypeScript integration but also guarantees runtime validation and reliable roundtrip encoding/decoding for all supported Plutus data types.
 
 #pagebreak()
-\
+#v(50pt)
+
 = Objectives and Acceptance Criteria
 \
 == Objectives
@@ -138,19 +136,20 @@ The work ensures that the core schema not only facilitates compile-time type saf
 - *Testing Framework:* Create comprehensive unit tests covering roundtrip conversions, ensuring robust encoding and decoding functionality.
 - *Documentation:* Produce detailed usage documentation with real-world examples to assist developers in integrating and leveraging the new schema.
 
-\
+#pagebreak()
+
 == Acceptance Criteria
 \
 - *Data Type Support:*
 \ 
 The schema must reliably support:
 
-  - `Integer`
+  - *`Integer`*
 
-  - `ByteString`
-  - `List` (including nested lists)
-  - `Map`
-  - `Constr` (data with constructors)
+  - *`ByteString`*
+  - *`List`* (including nested lists)
+  - *`Map`*
+  - *`Constr`* (data with constructors)
 
 \
 - *Utility Functions Must:*
@@ -170,8 +169,8 @@ The schema must reliably support:
 - A PDF report showcasing Effect Schema’s runtime validation.
 
 #pagebreak()
+#v(50pt)
 
-\
 = Implementation Overview
 \
 == Core Schema Development
@@ -185,7 +184,8 @@ The development phase concentrated on creating schema structures that directly m
 - *List Support:* Ability to manage both simple and nested lists, ensuring that recursive data structures are correctly handled.
 - *Map and Constr:* Detailed handling for key-value pairs and constructors ensures that complex data combinations maintain integrity.
 
-\
+#pagebreak()
+
 == Utility Functions and Type Safety
 \
 *Compile-time Assurance:*
@@ -204,51 +204,51 @@ A comprehensive suite of unit tests was implemented to verify bidirectional conv
 
   - Decoding back to the original format to confirm consistency.
 
-\
-== Documentation and Reporting
-\
-  *Documentation:*
-
-  Detailed documentation has been prepared, outlining:
-
-  - How to integrate and use the schema.
-
-  - Examples demonstrating type safety at compile time and runtime.
-
-  - Step-by-step guides on testing the roundtrip encoding/decoding process.
-
-\
-  *Evidence of Validation:*
-
-  A demonstration PDF report has been generated, which showcases the Effect Schema’s validation features and provides a clear narrative of the testing outcomes. The documentation and demonstration materials are all hosted on the GitHub repository.
 
 #pagebreak()
 
-\
+#v(50pt)
 = Evidence of Milestone Completion 
 
 \
-The following items have been provided as evidence of the successful completion of Milestone 1:
+The following items have been provided in the Lucid Evolution GitHub repository (https://github.com/Anastasia-Labs/lucid-evolution)
+as evidence of the successful completion of Milestone 1:
 
 \
-== GitHub Repository:
-\
-  The Lucid Evolution GitHub repository (https://github.com/Anastasia-Labs/lucid-evolution) contains:
+== Core Schema Implementation:
 
-  - The full implementation of the core schema structures.
+// https://github.com/Anastasia-Labs/lucid-evolution/pull/583
 
-  - The utility functions for compile-time and runtime validation.
-  - Extensive unit test coverage demonstrating the correct bi-directional parsing of Plutus Data types.
-  - Detailed documentation that includes usage examples and integration guidelines.
+  \
+  The full implementation of the core schema structures and utility functions for compile-time using Effect Schema, can be found at:
+ 
+    - https://github.com/Anastasia-Labs/lucid-evolution/blob/main/packages/experimental/src/Data.ts
+      
+      \
+== Detailed Documentation
 \
+Detailed Documentation detailing how to use schema for type safety at both compile-time and runtime, with examples of usage are at:
+
+  - https://github.com/Anastasia-Labs/lucid-evolution/blob/main/packages/experimental/docs/modules/Data.ts.md
+  
+
+\
+== Bi-directional schema parsing
+\
+Implementation of Bi-directional schema parsing for each Plutus data type (e.g., to PlutusData and from PlutusData conversions) can be found at:
+    
+  - https://github.com/Anastasia-Labs/lucid-evolution/blob/9326bdeacdc786feb35acffaa2181da2fcbea0a2/packages/experimental/src/TSchema.ts
+
+#pagebreak()
+
 == Unit Testing
 \
   A suite of unit tests has been executed which covers:
 
-  - Bi-directional schema parsing (to and from PlutusData conversions) for each supported data type.
-  - Roundtrip encoding and decoding processes.
+  - Bi-directional schema parsing for each Plutus data type (e.g., to PlutusData and from PlutusData conversions).
 
-  - Runtime validation scenarios that ensure data integrity under various use cases.
+  - Tests for all Plutus data types, showcasing Effect Schema's runtime validation in action.// has been showcased in a report that has published in PDF for easier review at:
+
 \
 == Validation Report (PDF)
 \
@@ -256,17 +256,19 @@ The following items have been provided as evidence of the successful completion 
 
   - Detailed test results.
 
-  - Example use cases.
 
   - Visualizations of error handling that clearly demonstrate the efficacy of the runtime type parsing and validation logic implemented using Effect Schema.
 
 #pagebreak()
-\
+#v(50pt)
+
 = Conclusion and Next Steps
 \
 == Conclusion
 \
   Milestone 1 has been successfully achieved. The core schema structures and accompanying utility functions now provide robust support for critical Plutus data types, with assurance provided by rigorous compile-time and runtime validations. This foundation is essential for the subsequent enhancements and integrations planned for Lucid Evolution 2.0.
+
+#pagebreak()
 
 == Next Steps
 \
