@@ -290,4 +290,4 @@ Moving forward, we remain dedicated to supporting the developer community and ad
 \
 #align(center)[== Closeout Video]
 \
-#align(center)[#link("https://www.youtube.com/watch?v=eXtPjU3aSQc")[ Plug-and-play-01 API -Closeout Video]]
+#align(center)[#link("https://www.youtube.com/watch?v=_lMovZI_BJ8")[ Plug-and-play-02 - Closeout Video]]
