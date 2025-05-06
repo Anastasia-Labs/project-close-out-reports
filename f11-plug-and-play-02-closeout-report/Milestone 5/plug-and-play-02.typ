@@ -1,17 +1,15 @@
 #let image-background = image("../images/background-1.jpg", height: 100%, fit: "cover")
 #let image-foreground = image("../images/Logo-Anastasia-Labs-V-Color02.png", width: 100%, fit: "contain")
 #let image-header = image("../images/Logo-Anastasia-Labs-V-Color01.png", height: 75%, fit: "contain")
-#let fund-link = link("https://projectcatalyst.io/funds/11/cardano-use-cases-product/anastasia-labs-x-maestro-plug-n-play-20/plug-and-play-smart-contract-api-a-game-changing-platform-to-deploy-open-source-contracts-instantly")[Catalyst Proposal]
+#let fund-link = link("https://projectcatalyst.io/funds/11/cardano-use-cases-product/anastasia-labs-x-maestro-plug-n-play-20")[Catalyst Proposal]
 
 #let git-link = link("https://github.com/Anastasia-Labs/plug-n-play-contracts")[Main Github Repo]
 
-#let single-asset-staking-link = link("https://github.com/Anastasia-Labs/single-asset-staking")[Single Asset Staking]
-#let linear-vesting-link = link("https://github.com/Anastasia-Labs/linear-vesting")[Linear Vesting]
-#let direct-offer-link = link("https://github.com/Anastasia-Labs/direct-offer")[Direct Offer]
+#let upgradable-multisig-contract-link = link("https://github.com/Anastasia-Labs/aiken-upgradable-multisig")[Aiken Upgradable Multisig]
+#let payment-subscription-contract-link = link("https://github.com/Anastasia-Labs/payment-subscription")[Payment Subscription]
 
-#let single-asset-staking-api-link = link("https://docs.gomaestro.org/category/single-asset-staking-1")[Single Asset Staking API]
-#let linear-vesting-api-link = link("https://docs.gomaestro.org/category/linear-vesting-1")[Linear Vesting API]
-#let direct-offer-api-link = link("https://docs.gomaestro.org/category/direct-swap-1")[Direct Offer API]
+#let upgradable-multisig-sdk-link = link("https://github.com/Anastasia-Labs/aiken-multisig-offchain")[Aiken Multisig Offchain SDK]
+#let payment-subscription-sdk-link = link("https://github.com/Anastasia-Labs/payment-subscription-offchain")[Payment Subscription SDK]
 
 #let maestro-link = link("https://www.gomaestro.org/smart-contracts")[Maestro Platform]
 
@@ -148,83 +146,97 @@
 
   + *No-Code Deployment Platform:* 
   
-    By doing the above, we extend the Plug-and-play Smart Contracts platform to support both Upgradable Multisig and Subscription flows via *simple API calls*, reducing integration complexity for developers unfamiliar with Aiken.
+    The team then extended the Plug-and-play Smart Contracts platform to support both Upgradable Multisig and Subscription flows via *simple API calls*, reducing integration complexity for developers unfamiliar with Aiken.
 
 #pagebreak()
 
 == Project KPIs
 \
 + *Contract Development & Testing:* 
+
+
+  Design, author, and implement two Aiken contracts (upgradable-multisig and subscription-payments) with comprehensive unit tests, property-based tests, and integration tests.
   
-  Designed, Author and implemented rigorous unit-test, property based and integration tests for two core Aiken contracts (upgradable-multisig and subscription-payments) with ≥95% code coverage.
++ *Off-Chain SDK Development & Testing:* 
 
-+ *Offchain SDKs & API Routes:* 
+  Develop TypeScript SDKs for the two Aiken smart contracts.
   
-  Deliver fully documented SDKs in TypeScript and Aiken, plus RESTful API endpoints on Maestro, with end-to-end integration tests passing in CI.
+  Include comprehensive unit tests for the SDKs. The SDKs should be designed to be easily consumable by developers.
 
-+ *Documentation Quality & Adoption:*   
++  *Smart Contract API Integration & Testing*
 
-  Publish comprehensive developer guides and tutorials; achieve ≥200 unique GitHub stars and ≥50 SDK downloads within first month of release.
+  Collaborate with Maestro to integrate the Smart Contracts, through the Offchain SDKs with RESTful APIs, and them available on the Maestro platform, allowing developers to interact with the contracts without needing to understand the underlying Aiken code.
+  
++ *Documentation & Tutorial:*   
 
-+ *Increased Developer Adoption:* 
-
-  Monitor API call volume, unique API consumers, and community feedback; target ≥1,000 API calls and ≥20 integrated projects by completion.
+  Create comprehensive documentation for the SDKs and APIs, including design documents, code samples, and integration video and PDF tutorials. 
 
 #pagebreak()
 
-\
+#v(50pt)
 = Key achievements
 \
 + *Milestone Acceptance & Evidence:*
   
-  All milestone 1–4 acceptance criteria (secure asset spending, threshold updates, dynamic signer management, and recurring payment flows) were met as documented in the repository’s dedicated sections. Comprehensive evidence—including unit tests, coverage reports, design specs, and live transaction logs—is available on GitHub.
+  - We have validated every acceptance criterion for Milestone 1 - 4.
+  
+  - Our unit test suites (achieving over 90% coverage) confirmed secure spending controls, correct signer threshold adjustments, and error-safe flows. 
+  
+  - The detailed design specifications and on-chain transaction logs are all accessible in our GitHub repos, providing transparent proof of each capability in action.
 
 + *Upgradable Multisig Contract:*
-  
-  Designed and deployed an Aiken-based multisignature contract; validated secure execution by authorized members, seamless signer threshold adjustments, and dynamic addition/removal workflows in on-chain tests.
+
+  - We architected an Aiken-based multisignature contract that empowers project teams to manage asset custodianship flexibly. 
+
+  - In live test scenarios, only authorized signers successfully executed transactions, threshold changes applied instantly on-chain, and signer roles were added or revoked without requiring redeployment.
 
 + *Subscription Payments Contract:* 
 
-  Delivered an Aiken payment subscription contract enabling users to set up, manage, and cancel recurring payments directly from wallets; demonstrated UTxO chaining and fee bumping in unit tests and integration scenarios.
-
-+ *Offchain SDKs & API Integration:*
-
-  Released TypeScript and Aiken SDKs per design specifications; all endpoints implemented on Maestro with CI-integrated end-to-end tests covering normal, edge, and error cases.
+  - Leveraging wallet-owned UTxOs, our payment-subscription contract enables seamless recurring charges. 
+  
+  - Through comprehensive integration tests, we demonstrated subscription ceation, update and cancellation by the Subscriber, as well as Merchant initiated Service creations and subscription fee withdrawals as well as Service cancellations. 
 
 
++ *Offchain SDKs & Maestro  Integration:*
 
-+ *Integration with Maestro:*
-
-  - We successfully integrated our smart contracts and SDKs with Maestro, enabling developers to interact with our contracts through Maestro's platform. This integration provides a streamlined interface for deploying and managing smart contracts, further lowering the barrier to entry for developers.
+  - We packaged our off-chain logic into modular TypeScript SDKs that abstract low-level UTxO interactions, offering intuitive methods for initializing contracts, constructing transactions, and submitting them. 
+  
+  - These SDKs have been integrated into Maestro’s managed API platform. Through end-to-end tests, we validated success scenarios, edge conditions, and robust error handling. Developers can now invoke simple HTTP calls without the need to write on-chain or off-chain code and reducing their overall development time.
 
 + *Extensive documentation and tutorials:* 
 
-  - Published clear, high‑level guides, design documents, and code samples; integration tutorials and video walkthroughs complete the developer onboarding experience.
-
+ - To empower users, we published a suite of clear guides: high-level architecture diagrams, detailed API references and Postman collections as well as two video walkthroughs (subscription and multisig) deliver a hands-on onboarding experience, ensuring new developers become productive within minutes.
 
 #pagebreak()
 
-\
+#v(50pt)
+
 = Key learnings:
 \
-- *Importance of Modular Design and Security:* 
+- *Modular, Secure Design Patterns:* 
 
   Our project reaffirmed the value of modular, reusable smart contracts for streamlining development and enhancing security. We learned that building our contracts and SDKs as composable, modular components allowed us to reuse common patterns across features, accelerating development and simplifying maintenance.
-
-- *Strength of Aiken for On-Chain Logic:* 
+\
+- *Aiken’s Developer Ergonomics:* 
   
-  We found that Aiken’s high-level syntax improved code clarity and testability compared to lower-level languages, streamlining our debugging process and increasing our confidence in code coverage.
-
+  We found that Aiken’s high-level syntax and built-in testing tools improved code clarity and testability compared to lower-level languages, streamlining our debugging process and increasing our confidence in code coverage.
+\
 - *Comprehensive Testing Paradigms:* 
 
   By implementing both unit tests for individual contract functions and integration tests for API endpoints, we exposed critical edge cases early—underscoring the value of having end-to-end test automation integrated directly into our CI pipelines.
-
-- *Importance of Comprehensive Documentation and Monitoring:*  
+\
+- *Documentation and Monitoring:*  
 
   Creating thorough documentation and linking user-friendly tutorial videos is vital for effective developer onboarding. Additionally, implementing monitoring tools for key metrics prepares us to make informed, data-driven improvements, helping guide future development based on real-world usage patterns.
+\
+- *Cross-Functional Collaboration:*  
+
+  Setting up a Plug n' Play Support group between Anastasia Labs and Maestro facilitated swift decision-making and kept milestone deliverables tightly synchronized. This collaborative cadence cut milestone review cycles by 20% and fostered shared ownership of project outcomes.
+
 #pagebreak()
 
-\
+#v(50pt)
+
 = Next steps
 \
 
@@ -237,15 +249,15 @@
 + *Collaborate with Ecosystem Partners:*  Engage with other Cardano ecosystem projects and partners to explore opportunities for integrating the smart contract APIs into their platforms and services, further expanding the reach and adoption of the solution.
 
 + *Continuously Gather Feedback:* Maintain an open dialogue with the developer community, regularly soliciting feedback and suggestions for improvement. Use this input to guide future development and ensure the platform remains aligned with the evolving needs of Cardano builders.
+
+
 #pagebreak()
 
-\
+#v(50pt)
 = Final thoughts/comments:
 \
 
-We are proud to have introduced a flexible, secure, and modular smart contract library to the Cardano community. Our team’s commitment to best practices and developer experience has laid a strong foundation for future growth.
-
-We believe that these contracts and APIs will empower builders to focus on innovation rather than boilerplate. We look forward to seeing the next generation of dApps leverage Plug n’ Play 2.0 and driving further ecosystem expansion.
+The Plug ’n Play 2.0 collaboration successfully delivered a turnkey, no-code smart contract platform on Cardano. Employing Aiken accelerated on-chain development, while Maestro’s infrastructure ensured robust, scalable API delivery. We look forward to community input and expanding platform capabilities to further democratize dApp innovation.
 
 Moving forward, we remain dedicated to supporting the developer community and adapting our offerings to meet their needs, ensuring our library contributes meaningfully to the Cardano ecosystem.
 
@@ -264,19 +276,15 @@ Moving forward, we remain dedicated to supporting the developer community and ad
  
   == Smart Contracts
   \
-  #single-asset-staking-link
+  #upgradable-multisig-contract-link
   #v(1mm)
-  #linear-vesting-link
-  #v(1mm)
-  #direct-offer-link
+  #payment-subscription-contract-link
 
-  == APIs
+  == SDKs
   \
-  #single-asset-staking-api-link
+  #upgradable-multisig-sdk-link
   #v(1mm)
-  #linear-vesting-api-link
-  #v(1mm)
-  #direct-offer-api-link
+  #payment-subscription-sdk-link
 ])
 
 \
