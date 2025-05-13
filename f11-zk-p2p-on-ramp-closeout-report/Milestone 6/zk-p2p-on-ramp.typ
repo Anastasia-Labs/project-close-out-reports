@@ -245,11 +245,6 @@ Over the past year of collaboration between ENCOINS, zkFold, and Anastasia Labs,
 
   Establishing regular syncs and a shared milestone tracker among ENCOINS, zkFold, and Anastasia Labs teams improved alignment, cut review cycles, and fostered collective ownership of deliverables. This practice not only enhanced communication but also ensured that all teams were on the same page regarding project timelines and deliverables.
 
-\
-- *Cross-Functional Collaboration:*  
-
-  Setting up a Plug n' Play Support group between Anastasia Labs and Maestro facilitated swift decision-making and kept milestone deliverables tightly synchronized. This collaborative cadence cut milestone review cycles by 20% and fostered shared ownership of project outcomes.
-
 #pagebreak()
 
 #v(50pt)
@@ -260,14 +255,19 @@ Over the past year of collaboration between ENCOINS, zkFold, and Anastasia Labs,
 + *Preprod / Mainnet Rollout:* 
   Transition the  escrow contract Preview to Preprod and them Mainnet, ensuring all components are fully functional and secure for real-world use. This will involve thorough testing and validation of the entire system to ensure a seamless user experience.
 
+  \
 + *Off-Ramp Schema Expansion:* Add support for additional signature-based payment providers by defining new ZK circuit schemas.
 
+  \
 + *Expand Smart Contract Library:* Continue developing and integrating additional smart contracts based on developer feedback and ecosystem needs. This will ensure the platform remains relevant and valuable to the growing Cardano developer community.
 
+  \
 + *Enhance API Documentation:* Improve the API documentation with more examples, use cases, and best practices to make it even easier for developers to integrate and utilize the smart contract services.
 
+  \
 + *Collaborate with Ecosystem Partners:*  Engage with other Cardano ecosystem projects and partners to explore opportunities for integrating the smart contract APIs into their platforms and services, further expanding the reach and adoption of the solution.
 
+  \
 + *Continuously Gather Feedback:* Maintain an open dialogue with the developer community, regularly soliciting feedback and suggestions for improvement. Use this input to guide future development and ensure the platform remains aligned with the evolving needs of Cardano builders.
 
 
