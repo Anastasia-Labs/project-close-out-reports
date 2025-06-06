@@ -1,8 +1,8 @@
 #import "@preview/cetz:0.2.2"
 
-#let image-background = image("../../images/background-1.jpg", height: 100%, fit: "cover")
-#let image-foreground = image("../../images/Logo-Anastasia-Labs-V-Color02.png", width: 100%, fit: "contain")
-#let image-header = image("../../images/Logo-Anastasia-Labs-V-Color01.png", height: 75%, fit: "contain")
+#let image-background = image("../../../images/background-1.jpg", height: 100%, fit: "cover")
+#let image-foreground = image("../../../images/Logo-Anastasia-Labs-V-Color02.png", width: 100%, fit: "contain")
+#let image-header = image("../../../images/Logo-Anastasia-Labs-V-Color01.png", height: 75%, fit: "contain")
 #let luid-evolution-link = link("https://anastasia-labs.github.io/lucid-evolution")[Lucid Evolution Website]
 #let lucid-evolution-git-link = link("https://github.com/Anastasia-Labs/lucid-evolution")[Main Github Repo]
 #let project_link = link("https://projectcatalyst.io/funds/13/cardano-open-developers/lucid-evolution-20-blueprint-and-enhanced-plutus-schema")[Catalyst Proposal]
@@ -65,7 +65,7 @@
   background: none,
   header: [
     #align(right)[
-      #image("../../images/Logo-Anastasia-Labs-V-Color01.png", width: 25%, fit: "contain")
+      #image("../../../images/Logo-Anastasia-Labs-V-Color01.png", width: 25%, fit: "contain")
     ]
     #v(-0.5cm)
     #line(length: 100%, stroke: 0.5pt)
