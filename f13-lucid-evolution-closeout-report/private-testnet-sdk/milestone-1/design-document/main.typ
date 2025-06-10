@@ -3,6 +3,8 @@
 #let image-background = image("../../../images/background-1.jpg", height: 100%, fit: "cover")
 #let image-foreground = image("../../../images/Logo-Anastasia-Labs-V-Color02.png", width: 100%, fit: "contain")
 #let image-header = image("../../../images/Logo-Anastasia-Labs-V-Color01.png", height: 75%, fit: "contain")
+#let private-testnet-architecture = image("../../../images/private-testnet-sdk.png", width: 100%, fit: "contain")
+
 #let luid-evolution-link = link("https://anastasia-labs.github.io/lucid-evolution")[Lucid Evolution Website]
 #let lucid-evolution-git-link = link("https://github.com/Anastasia-Labs/lucid-evolution")[Main Github Repo]
 #let project_link = link("https://projectcatalyst.io/funds/13/cardano-open-developers/lucid-evolution-20-private-testnet-sdk-and-l2-provider-integration")[Catalyst Proposal]
@@ -168,10 +170,20 @@ This SDK offers substantial advantages throughout the development lifecycle:
 - *Improved Test Coverage* via consistent, reproducible environments, fostering higher quality dApps.
 
 #pagebreak()
-#v(50pt)
 = Architecture Overview
+
 \
 This section presents a high-level overview of the SDK's architecture, illustrating how its core components interact to provide private testnet functionality.
+
+\
+#figure(
+  image("../../../images/private-testnet-sdk.png", height: 80%),
+  caption: [
+    Private Testnet SDK
+  ],
+)
+
+
 #pagebreak()
 
 The diagram above illustrates the layered architecture of the Lucid Evolution 2.0 SDK. Here's a breakdown of each key component:
@@ -635,11 +647,11 @@ This section details the perspectives of various stakeholders and the specific c
   - *Node.js:* Version 16+ (LTS), TypeScript 4.5+.
   - *Cardano Node Versions:* Compatible with Cardano Node 10.4.1; plan for backward compatibility to 10.3 and forward to next minor release.
   - *Hydra:* Compatible with Hydra node version 1.0+.
-  
+
 #pagebreak()
 = Feature Prioritization
 \
-This table outlines the planned development order based on community feedback and project needs.
+Below the planned development order based on community feedback and project needs.
 
 
 #pagebreak()
