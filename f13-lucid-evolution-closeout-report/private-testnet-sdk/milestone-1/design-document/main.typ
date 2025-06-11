@@ -10,6 +10,32 @@
 #let project_link = link("https://projectcatalyst.io/funds/13/cardano-open-developers/lucid-evolution-20-private-testnet-sdk-and-l2-provider-integration")[Catalyst Proposal]
 #let milestone_link = link("https://milestones.projectcatalyst.io/projects/1300128/milestones/1")[Milestone 1]
 
+#let issue_510 = link("https://github.com/Anastasia-Labs/lucid-evolution/issues/510
+")[`#510`]
+#let issue_511 = link("https://github.com/Anastasia-Labs/lucid-evolution/issues/511
+")[`#511`]
+#let issue_512 = link("https://github.com/Anastasia-Labs/lucid-evolution/issues/512
+")[`#512`]
+#let issue_513 = link("https://github.com/Anastasia-Labs/lucid-evolution/issues/513
+")[`#513`]
+#let issue_514 = link("https://github.com/Anastasia-Labs/lucid-evolution/issues/514
+")[`#514`]
+#let issue_516 = link("https://github.com/Anastasia-Labs/lucid-evolution/issues/516
+")[`#516`]
+#let issue_518 = link("https://github.com/Anastasia-Labs/lucid-evolution/issues/518
+")[`#518`]
+#let issue_523 = link("https://github.com/Anastasia-Labs/lucid-evolution/issues/523
+")[`#523`]
+#let issue_520 = link("https://github.com/Anastasia-Labs/lucid-evolution/issues/520
+")[`#520`]
+#let issue_521 = link("https://github.com/Anastasia-Labs/lucid-evolution/issues/521
+")[`#521`]
+#let issue_524 = link("https://github.com/Anastasia-Labs/lucid-evolution/issues/524
+")[`#524`]
+#let issue_525 = link("https://github.com/Anastasia-Labs/lucid-evolution/issues/525
+")[`#525`]
+
+
 
 #set page(
   background: image-background,
@@ -666,34 +692,27 @@ The table below describes the planned development order based on community feedb
   ),
   // P1 - Core Testnet Functionality & Basic Integration
   [*P1*], [*Core Testnet Functionality & Basic Integration*], [],
-  [], [Private Testnet Lifecycle Management (Spin up/down, start/stop/restart, remove)], [\#510, \#513],
-  [], [Customizable Parameters (Protocol parameters, genesis file templates)], [\#514],
-  [], [Initial UTxO Distribution/Genesis Block Configuration], [\#511],
-  [], [Basic Lucid Provider Integration (Transaction submission, basic data queries)], [\#510],
-  [], [Core Testing Utilities (Jest/Vitest matchers: #h(2pt) `toBeRunning`, #h(2pt) `toHaveBalance`, #h(2pt) `toContainUtxo`, #h(2pt) `toHaveConfirmedTx`, Dry-run mode, Redeemer evaluation)], [\#516],
-  [], [Error Reporting (#h(2pt) `CardanoDevNetError` propagation)], [\#510],
-  [], [Quickstart Guides & Usage Examples Documentation], [\#525],
+  [], [Private Testnet Lifecycle Management (Spin up/down, start/stop/restart, remove)], [*#issue_510*],
+  [], [Customizable Parameters (Protocol parameters, genesis file templates)], [*#issue_514*],
+  [], [Initial UTxO Distribution/Genesis Block Configuration], [*#issue_511*],
+  [], [Basic Lucid Provider Integration (Transaction submission, basic data queries)], [*#issue_510*],
+  [], [Transaction Simulation & Testing], [*#issue_516*],
+  [], [Quickstart Guides & Usage Examples Documentation], [*#issue_525*],
 
   // P2 - Advanced Management & Wallet/Asset Features
   [*P2*], [*Advanced Management & Wallet/Asset Features*], [],
-  [], [Multi-Instance Support (Parallel DevNets with isolation; simulate multi-node clusters)], [\#512, \#510],
-  [], [Time/Slot Simulation (#h(2pt) `awaitSlot`, #h(2pt) `awaitBlock`)], [\#513],
-  [], [Blockchain State Management (Save/load snapshots)], [\#513],
-  [], [Wallet & Asset Management (Wallet creation/restoration, Multi-Sig support, Token/NFT minting/burning, Asset distribution monitoring)], [\#523],
-  [], [Debugging Tools (Visual State Logging, Transaction Inspection, Simulated Network Conditions)], [\#518],
-  [], [Configurable Resource Limits (CPU, memory caps)], [\#510],
+  [], [Multi-Instance Support (Parallel DevNets with isolation; simulate multi-node clusters)], [*#issue_512*],
+  [], [Time/Slot Simulation (#h(2pt) `awaitSlot`/ #h(2pt) `awaitBlock`)], [*#issue_513*],
+  [], [Blockchain State Management (Save/load snapshots)], [*#issue_513*],
+  [], [Wallet & Asset Management (Wallet creation/restoration, Multi-Sig support, Token/NFT minting/burning, Asset distribution monitoring)], [*#issue_523*],
+  [], [Debugging Tools (Visual State Logging, Transaction Inspection, Simulated Network Conditions)], [*#issue_518*],
 
   // P3 - Layer 2 Integration & Governance
   [*P3*], [*Layer 2 Integration & Governance*)], [],
-  [], [Hydra Head Protocol Support (Simulate state channels, spin up/down Hydra via SDK)], [\#519, \#520],
-  [], [L1 ↔ L2 Interoperability (Integrate Hydra with Lucid transaction builder, benchmark L2 throughput/latency, Automated L1 settlement)], [\#521],
-  [], [Stake Pool & Governance Simulation (Reward distribution, Delegation, Leader election, CIP-1694 workflows)], [\#524],
-  [], [Advanced Tutorials Documentation], [\#525],
-
-  // O - Ongoing/Future Enhancements
-  [*O*], [*Ongoing/Future Enhancements*], [],
-  [], [Example Projects (NFT marketplaces, DEX swaps, DAO governance models)], [\#525],
-  [], [Community Support Channels (GitHub issue templates)], [\#525],
+  [], [Hydra Head Protocol Support (Simulate state channels, spin up/down Hydra via SDK)], [*#issue_520*],
+  [], [L1 ↔ L2 Interoperability (Integrate Hydra with Lucid transaction builder, benchmark L2 throughput/latency, Automated L1 settlement)], [*#issue_521*],
+  [], [Stake Pool & Governance Simulation (Reward distribution, Delegation, Leader election, CIP-1694 workflows)], [*#issue_524*],
+  [], [Advanced Tutorials Documentation], [*#issue_525*],
 )
 
 
