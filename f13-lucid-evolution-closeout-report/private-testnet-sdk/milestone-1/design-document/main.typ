@@ -214,13 +214,24 @@ This section presents a high-level overview of the SDK's architecture, illustrat
 
 The diagram above illustrates the layered architecture of the Lucid Evolution 2.0 SDK. Here's a breakdown of each key component:
 
-- *DevNet Management Layer:* This part of the SDK handles the full lifecycle of your testnets. It manages container orchestration (starting, stopping, and removing them), generates necessary configurations (like genesis files and cryptographic keys), and ensures proper resource and port isolation for each testnet.
-
-- *Provider & L2 Integration Layer:* This layer connects your application to the testnet. It implements Lucid's Provider interface, letting you submit transactions, query UTxOs, retrieve datums, and interact with the blockchain. It also extends this functionality to manage Layer 2 solutions like Hydra heads, off-chain transactions, and on-chain settlement processes.
-- *Container Runtime Libraries (Dockerode / Testcontainers):* These are Node.js libraries that provide the programming interface to interact directly with Docker. They allow the SDK to programmatically control Docker containers.
-- *Underlying Infrastructure (Docker Runtime):* This is the foundation. It's the Docker engine running real Cardano nodes (supporting any era) and Hydra nodes, each isolated within its own container. This ensures your tests run against environments that truly mimic the production network.
-
 \
+- *DevNet Management Layer* 
+  
+  This part of the SDK handles the full lifecycle of your testnets. It manages container orchestration (starting, stopping, and removing them), generates necessary configurations (like genesis files and cryptographic keys), and ensures proper resource and port isolation for each testnet.
+\
+- *Provider & L2 Integration Layer* 
+  
+  This layer connects your application to the testnet. It implements Lucid's Provider interface, letting you submit transactions, query UTxOs, retrieve datums, and interact with the blockchain. It also extends this functionality to manage Layer 2 solutions like Hydra heads, off-chain transactions, and on-chain settlement processes.
+\
+- *Container Runtime Libraries (Dockerode / Testcontainers)* 
+  
+  These are Node.js libraries that provide the programming interface to interact directly with Docker. They allow the SDK to programmatically control Docker containers.
+\
+- *Underlying Infrastructure (Docker Runtime)* 
+  
+  This is the foundation. It's the Docker engine running real Cardano nodes (supporting any era) and Hydra nodes, each isolated within its own container. This ensures your tests run against environments that truly mimic the production network.
+
+#pagebreak()
 == Technology Stack
 \
 The technology stack for Lucid Evolution 2.0 was selected to ensure robustness, type safety, and direct control over the testing environment.
@@ -251,8 +262,7 @@ export class CardanoDevNetError extends Data.TaggedError("CardanoDevNetError")<{
 }> {}
 
 ```
-\
-
+#pagebreak()
 === Dockerode Integration
 \
 - *Decision:* We utilize *Dockerode* for direct programmatic interaction with the Docker API.
@@ -276,7 +286,7 @@ export class CardanoDevNetError extends Data.TaggedError("CardanoDevNetError")<{
   - *Future Compatibility:* Automatically adapts to protocol upgrades, reducing maintenance overhead.
   - *Accurate Debugging:* Real node logs and metrics offer authentic insights for troubleshooting.
 
-\
+#pagebreak()
 == Configuration System Design
 \
 A flexible and secure configuration system is essential for adapting testnets to diverse development needs.
@@ -315,7 +325,7 @@ A flexible and secure configuration system is essential for adapting testnets to
 
   ```
 
-\
+#pagebreak()
 === Security-First Key Management
 \
 - *Decision:* We implement secure cryptographic key handling with proper file permissions.
@@ -361,6 +371,7 @@ The SDK is designed to support multiple, independently operating testnet instanc
   - *Scalability:* Supports both single and multi-instance scenarios efficiently.
 
 #pagebreak()
+#v(50pt)
 
 = Core Component Design
 \
@@ -383,7 +394,7 @@ It's responsible for the direct programmatic control over your DevNet instances.
   - *`getContainerStatus(container: DevNetContainer):`* Retrieves the current status and detailed information about a specific DevNet container.
 
 \
-- *Primary Functions:*
+- *Primary Operations:*
 
   - *Lifecycle Operations:* Manages container creation, starting, stopping, and removal with comprehensive error handling.
 
@@ -391,6 +402,53 @@ It's responsible for the direct programmatic control over your DevNet instances.
   - *Port Management:* Automatically allocates and manages ports for node communication, including collision detection.
   - *Volume Mounting:* Securely mounts configuration and key files into containers.
 \
+===  DevNet Initialization Example
+\
+To quickly spin up a private testnet and configure it with initial funds for testing, developers can use the following pattern:
+
+
+```ts
+
+const generateAccountForDevnet = () => {
+  const privateKey = CML.PrivateKey.generate_ed25519();
+  const publicKey = privateKey.to_public();
+  const pubKeyHash = publicKey.hash();
+  const keyhash = KeyHash.Decode.hex(pubKeyHash.to_hex());
+  const addr = new EnterpriseAddress.EnterpriseAddress({
+    networkId: NetworkId.NetworkId.make(0),
+    paymentCredential: keyhash,
+  });
+  const hex = EnterpriseAddress.Encode.hex(addr);
+  const address = EnterpriseAddress.Decode.hex(hex);
+  const addressBech32 = Address.Encode.bech32(address);
+
+  return {
+    hex,
+    keyhash,
+    address,
+    addressBech32,
+    privateKey: privateKey.to_bech32(),
+  } as const;
+};
+
+const account = generateAccountForDevnet();
+console.log(`Generated address: ${JSON.stringify(account)})`);
+
+const cluster = await Devnet.Cluster.makeOrThrow({
+  clusterName: "devnet-1",
+  shelleyGenesis: {
+    epochLength: 1000,
+    initialFunds: {
+      [account.hex]: 123456789, // use full address hex instead of keyhash
+    },
+  },
+});
+
+await Devnet.Cluster.startOrThrow(cluster);
+
+```
+
+#pagebreak()
 - *Design Benefits:*
 
   - *Reliability:* Ensures robust operation with comprehensive error handling and clear error messages.
@@ -428,7 +486,7 @@ This component bridges the DevNet functionality with Lucid's API and supports La
   \
 - *Transparent Failover:* If a DevNet container stops unexpectedly, DevNetProvider will automatically attempt to restart it (configurable in DevNetConfig).
 
-\
+#pagebreak()
  == L2 (Hydra) Integration Layer
 
 \
@@ -513,7 +571,7 @@ export class CardanoDevNetError extends Data.TaggedError("CardanoDevNetError")<{
 ```ts
   interface DevNetContainer { id: string; name: string; }
 ```
-\
+#pagebreak()
 *DevNet Lifecycle Functions*
 
 These core functions manage the DevNet's state and return an Effect type for robust error handling.
@@ -622,7 +680,7 @@ This section details the perspectives of various stakeholders and the specific c
 - *Project Managers:* Seek clear timelines, documented architecture, and assurance of production parity.
 - *Community Contributors:* Demand modular design to extend L2 support or add new utilities.
 
-\
+#pagebreak()
 == Functional Requirements
 
 \
@@ -640,7 +698,7 @@ This section details the perspectives of various stakeholders and the specific c
 - *FR-011:* *Error Reporting All:* container and provider errors propagate as CardanoDevNetError with reason and message.
 - *FR-012:* *Resource Limits:* Default CPU and memory caps per container; configurable in DevNetConfig.
 
-\
+#pagebreak()
 == Non-Functional Requirements
 \
 - *Performance:*
@@ -698,7 +756,17 @@ The table below describes the planned development order based on community feedb
   [], [Basic Lucid Provider Integration (Transaction submission, basic data queries)], [*#issue_510*],
   [], [Transaction Simulation & Testing], [*#issue_516*],
   [], [Quickstart Guides & Usage Examples Documentation], [*#issue_525*],
+)
 
+
+#table(
+  columns: (1fr, 3fr, 1fr),
+  align: center,
+  table.header(
+    [*Priority*],
+    [*Feature*],
+    [*GitHub Issue*]
+  ),
   // P2 - Advanced Management & Wallet/Asset Features
   [*P2*], [*Advanced Management & Wallet/Asset Features*], [],
   [], [Multi-Instance Support (Parallel DevNets with isolation; simulate multi-node clusters)], [*#issue_512*],
@@ -706,6 +774,19 @@ The table below describes the planned development order based on community feedb
   [], [Blockchain State Management (Save/load snapshots)], [*#issue_513*],
   [], [Wallet & Asset Management (Wallet creation/restoration, Multi-Sig support, Token/NFT minting/burning, Asset distribution monitoring)], [*#issue_523*],
   [], [Debugging Tools (Visual State Logging, Transaction Inspection, Simulated Network Conditions)], [*#issue_518*],
+
+)
+
+#pagebreak()
+
+#table(
+  columns: (1fr, 3fr, 1fr),
+  align: center,
+  table.header(
+    [*Priority*],
+    [*Feature*],
+    [*GitHub Issue*]
+  ),
 
   // P3 - Layer 2 Integration & Governance
   [*P3*], [*Layer 2 Integration & Governance*)], [],
@@ -715,9 +796,7 @@ The table below describes the planned development order based on community feedb
   [], [Advanced Tutorials Documentation], [*#issue_525*],
 )
 
-
-#pagebreak()
-#v(50pt)
+\
 = Conclusion
 \
 This design specification documents the complete architecture, functional requirements, and prioritized feature set for Milestone 1 of Lucid Evolution 2.0. The SDK’s modular, TypeScript-first approach powered by Effect-TS and Dockerode/Testcontainers ensures developers can quickly provision authentic Cardano testnets, including L2 (Hydra) capabilities, with minimal setup.
@@ -735,3 +814,30 @@ This design specification documents the complete architecture, functional requir
 + *Final Milestone* (L2 Integration & Release): Complete Hydra head integration, state snapshots, CLI tool, visual explorer; prepare community release and closeout report (4–6 months).
 
 Upon approval, the team will begin Milestone 2, adhering to the roadmap and using the performance/risk metrics defined herein. Successful delivery of this SDK will significantly improve Cardano developer productivity, test coverage, and ecosystem reliability.
+
+\
+= Project Manager approval
+\
+ This section formally records the Project Manager's approval of this Design Specification Document for Milestone 1.
+
+\
+#set text(weight: "bold")
+Approved By:
+#v(2em)
+#line(length: 50%) 
+#v(2em)
+(Signature)
+#v(2em)
+#line(length: 50%) 
+#v(2em)
+(Date)
+#line(length: 50%) 
+
+#v(2em) 
+
+#set text(weight: "bold")
+Comments (Optional):
+#v(2em)
+#line(length: 100%) 
+#v(2em)
+#line(length: 100%) 
