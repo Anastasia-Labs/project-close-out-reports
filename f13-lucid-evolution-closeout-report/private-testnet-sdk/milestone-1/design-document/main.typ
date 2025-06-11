@@ -145,9 +145,9 @@
 
 = Executive Summary
 \
-*Lucid Evolution 2.0 - Private Testnet SDK & L2 Provider Integration* introduces a powerful *TypeScript SDK* designed to provide Cardano developers with a *reliable and efficient testing environment* for smart contracts and decentralized applications. It directly tackles the common frustrations of current development workflows, such as reliance on incomplete emulators, cumbersome shell scripts, and manual Docker commands. This SDK transforms the experience by offering developers *programmable control over real Cardano nodes and integrated Hydra heads*.
+*Lucid Evolution 2.0 - Private Testnet SDK & L2 Provider Integration* introduces a powerful *TypeScript SDK* designed to provide Cardano developers with a *reliable and efficient testing environment* for smart contracts and decentralized applications. It directly tackles the common frustrations of current development workflows, such as reliance on incomplete emulators, cumbersome shell scripts, and manual Docker commands. This SDK transforms the experience by offering developers *programmable control over real Cardano nodes*.
 
-A key benefit is the ability to *spin up on-demand, disposable private testnets in under 30 seconds* using technologies like Dockerode and Testcontainers, all powered by a concise *Effect-TS API*. This fundamentally shifts infrastructure control into the codebase, eliminating external dependencies and enabling seamless integration with popular testing frameworks. Ultimately, Lucid Evolution 2.0 empowers developers to *focus on application logic rather than infrastructure management*, significantly enhancing productivity and reliability.
+A key benefit is the ability to *spin up on-demand, disposable private testnets* using Dockerode and Testcontainers, all powered by a concise *Effect-TS API*. This fundamentally shifts infrastructure control into the codebase, eliminating external dependencies and enabling seamless integration with popular testing frameworks. Ultimately, Lucid Evolution 2.0 empowers developers to *focus on application logic rather than infrastructure management*, significantly enhancing productivity and reliability.
 
 \
 == Purpose of this Document
@@ -215,21 +215,13 @@ This section presents a high-level overview of the SDK's architecture, illustrat
 The diagram above illustrates the layered architecture of the Lucid Evolution 2.0 SDK. Here's a breakdown of each key component:
 
 \
-- *DevNet Management Layer* 
-  
-  This part of the SDK handles the full lifecycle of your testnets. It manages container orchestration (starting, stopping, and removing them), generates necessary configurations (like genesis files and cryptographic keys), and ensures proper resource and port isolation for each testnet.
+- *DevNet Management Layer:* This part of the SDK handles the full lifecycle of your testnets. It manages container orchestration (starting, stopping, and removing them), generates necessary configurations (like genesis files and cryptographic keys), and ensures proper resource and port isolation for each testnet.
 \
-- *Provider & L2 Integration Layer* 
-  
-  This layer connects your application to the testnet. It implements Lucid's Provider interface, letting you submit transactions, query UTxOs, retrieve datums, and interact with the blockchain. It also extends this functionality to manage Layer 2 solutions like Hydra heads, off-chain transactions, and on-chain settlement processes.
+- *Provider Integration Layer:* This layer connects your application to the testnet. It implements Kupo and Ogmios as a Provider interface, letting you submit transactions, query UTxOs, retrieve datums, and interact with the blockchain. It also extends this functionality to manage off-chain transactions, and on-chain settlement processes.
 \
-- *Container Runtime Libraries (Dockerode / Testcontainers)* 
-  
-  These are Node.js libraries that provide the programming interface to interact directly with Docker. They allow the SDK to programmatically control Docker containers.
+- *Container Runtime Libraries (Dockerode / Testcontainers):* These are Node.js libraries that provide the programming interface to interact directly with Docker. They allow the SDK to programmatically control Docker containers.
 \
-- *Underlying Infrastructure (Docker Runtime)* 
-  
-  This is the foundation. It's the Docker engine running real Cardano nodes (supporting any era) and Hydra nodes, each isolated within its own container. This ensures your tests run against environments that truly mimic the production network.
+- *Underlying Infrastructure (Docker Runtime):* This is the foundation. It's the Docker engine running real Cardano nodes (supporting any era), Kupo indexer, and Ogmios server, each isolated within its own container. This ensures your tests run against environments that truly mimic the production network.
 
 #pagebreak()
 == Technology Stack
@@ -249,7 +241,8 @@ The technology stack for Lucid Evolution 2.0 was selected to ensure robustness, 
   + *Type Safety:* Comprehensive static type checking eliminates common runtime errors, leading to more stable code.
   + *Concurrency* Offers superior handling of concurrent container operations, crucial for efficient testnet management.
 
-- * Implementation Example:*
+\
+*Implementation Example:*
 
 ```ts
 
@@ -262,6 +255,9 @@ export class CardanoDevNetError extends Data.TaggedError("CardanoDevNetError")<{
 }> {}
 
 ```
+\
+`Disclaimer: This code example illustrates the intended functionality and is subject to change as development progresses.`
+
 #pagebreak()
 === Dockerode Integration
 \
@@ -324,21 +320,11 @@ A flexible and secure configuration system is essential for adapting testnets to
     }
 
   ```
+\
+  `Disclaimer: This code example illustrates the intended functionality and is subject to change as development progresses.`
 
 #pagebreak()
-=== Security-First Key Management
-\
-- *Decision:* We implement secure cryptographic key handling with proper file permissions.
 
-- *Rationale:*
-
-  - *Security Best Practices:* File permissions (0o600) prevent unauthorized access to sensitive keys.
-
-  - *Ephemeral Keys:* Temporary keys reduce the window of security exposure.
-  - *Automatic Cleanup:* Secure destruction of keys prevents leakage after testing.
-  - *Isolation:* Per-testnet keys prevent cross-contamination between environments.
-
-\
 == Multi-Instance Architecture
 \
 The SDK is designed to support multiple, independently operating testnet instances, enabling parallel testing and complex simulation scenarios.
@@ -354,9 +340,6 @@ The SDK is designed to support multiple, independently operating testnet instanc
 
   - *Resource Safety:* Prevents resource conflicts and port collisions between instances.
   - *State Isolation:* Maintains independent blockchain states for different test scenarios.
-  - *Failure Containment:* Issues in one testnet instance do not affect others.
-
-#pagebreak()
 
 === Resource Management
 \
@@ -384,14 +367,14 @@ This foundational layer handles all interactions with Docker, overseeing the ent
 It's responsible for the direct programmatic control over your DevNet instances.
 
 \
-- *Core Functions:* This layer exposes the following key functions for managing DevNet containers:
+- *Core Functions:* This layer exposes the following key functions for managing DevNet containers, all returning an *`Effect`* for robust error handling:
 
-  - *`make(config?: DevNetConfig):`* Creates and provisions a new DevNet container, making it ready for use.
+  - *`make():`* Creates and provisions a new DevNet container, making it ready for use.
 
-  - *`startContainer(container: DevNetContainer):`* Starts a previously created or stopped DevNet container.
-  - *`stopContainer(container: DevNetContainer):`* Stops a running DevNet container without removing its data.
-  - *`removeContainer(container: DevNetContainer):`* Removes a DevNet container and its associated data, cleaning up resources.
-  - *`getContainerStatus(container: DevNetContainer):`* Retrieves the current status and detailed information about a specific DevNet container.
+  - *`startContainer():`* Starts a previously created or stopped DevNet container.
+  - *`stopContainer():`* Stops a running DevNet container without removing its data.
+  - *`removeContainer():`* Removes a DevNet container and its associated data, cleaning up resources.
+  - *`getContainerStatus():`* Retrieves the current status and detailed information about a specific DevNet container.
 
 \
 - *Primary Operations:*
@@ -400,7 +383,6 @@ It's responsible for the direct programmatic control over your DevNet instances.
 
   - *Configuration Generation:* Dynamically generates genesis files and node configurations within secure temporary directories.
   - *Port Management:* Automatically allocates and manages ports for node communication, including collision detection.
-  - *Volume Mounting:* Securely mounts configuration and key files into containers.
 \
 ===  DevNet Initialization Example
 \
@@ -447,6 +429,9 @@ const cluster = await Devnet.Cluster.makeOrThrow({
 await Devnet.Cluster.startOrThrow(cluster);
 
 ```
+\
+  `Disclaimer: This code illustrates the intended functionality and is subject to change as development progresses.`
+
 
 #pagebreak()
 - *Design Benefits:*
@@ -460,61 +445,21 @@ await Devnet.Cluster.startOrThrow(cluster);
 \
 == Provider Integration Layer
 \
-This component bridges the DevNet functionality with Lucid's API and supports Layer 2 protocols like Hydra.
+This component is designed to manage and expose the necessary services for accessing Cardano blockchain data and submitting transactions.
 
 \
-- *Integration with Lucid Evolution:*
+- *Kupo Integration:* The SDK will configure and manage a Kupo indexer instance alongside the DevNet. Kupo provides a robust and efficient way to query UTxOs and historical blockchain data. The SDK will expose endpoints to allow dApps to connect to this Kupo instance for data retrieval.
 
-  Implements Lucid’s Provider type so DApps written with Lucid can point to a DevNet instance transparently.
- 
-  Example:
+- *Ogmios Integration:* The SDK will manage an Ogmios server instance, providing a WebSocket interface to interact directly with the Cardano node. Ogmios will be used for real-time node communication, including transaction submission and chain synchronization.
 
-  ```ts
+- *Transparent Failover:* If a DevNet container stops unexpectedly, DevNetProvider will automatically attempt to restart it (configurable in *`DevNetConfig`*).
 
-    import { fromDevNet } from "@lucid-evolution";
-    import { make, startContainer } from "@lucid-evolution/experimental/CardanoNode/DevNet";
-
-    const main = Effect.gen(function* () {
-      const container   = yield* make({ networkMagic: 42 });
-      yield* startContainer(container);
-      const provider = fromDevNet(container, { networkMagic: 42 });
-      const lucid       = Lucid.new(provider, { Key });
-      // ... use lucid to submit transactions, query UTxOs, etc.
-    });
-    
-  ```
-  \
-- *Transparent Failover:* If a DevNet container stops unexpectedly, DevNetProvider will automatically attempt to restart it (configurable in DevNetConfig).
-
-#pagebreak()
- == L2 (Hydra) Integration Layer
-
-\
-The Hydra provider will provide comprehensive tools for integrating and managing Hydra heads with your DevNet.
-
-\
-===  Hydra Head Lifecycle
-\
-- *Head Initialization (initHead):* Spawns a Hydra leader container alongside the Cardano node, sets up network ports for head communication.
-
-- *Open/Close/Fanout:* Exposes TypeScript methods to open state channel heads, submit off-chain transactions, and coordinate on-chain settlement via L1.
-- *Participant Management:* Add/Remove peers in a head; track on-chain UTxOs for deposits and snapshot states.
-
-\
-=== Off-Chain Transaction Pipeline
-
-\
-- *Stability Guarantees:* Ensures off-chain transactions build and sign correctly against the DevNet node’s ledger state.
-
-- *Event Subscriptions:* Expose RxJS or Effect-TS streams to notify developers when head state changes, on-chain commits, or contests occur.
-- *Automated Settlement:* On test failure or head closure, automatically coordinate Hydra head on-chain transactions using the DevNet provider.
 
 #pagebreak()
 #v(50pt)
-
 = Error Handling Strategy
 \
-A robust error handling system is critical for a reliable SDK, ensuring stability and a positive developer experience.
+A robust error handling system is critical for a reliable SDK. Error types in the SDK will come with documentation showing the errors and how to fix them with debug friendly error messages, ensuring stability and a positive developer experience.
 
 \
 == Tagged Error System
@@ -525,9 +470,8 @@ A robust error handling system is critical for a reliable SDK, ensuring stabilit
 
   - *Debugging Efficiency:* Provides clear error types with actionable remediation steps for developers.
   
-  - *Automated Recovery:* Allows for specific error handlers for different failure modes, enabling programmatic recovery.
   - *User Experience:* Generates helpful error messages with troubleshooting guidance.
-  - *System Reliability:* Facilitates graceful degradation and automatic cleanup in case of failures.
+
 \
 == Operational Resilience
 \
@@ -539,7 +483,6 @@ The SDK is designed with built-in mechanisms to recover from unexpected issues a
   - *Container Cleanup:* Automatic removal of failed or terminated containers.
   
   - *Resource Reclamation:* Cleanup of temporary files and directories.
-  - *State Recovery:* Intelligent restart and state restoration capabilities.
   - *Graceful Degradation:* Ensures partial functionality during component failures.
 
 #pagebreak()
@@ -571,36 +514,77 @@ export class CardanoDevNetError extends Data.TaggedError("CardanoDevNetError")<{
 ```ts
   interface DevNetContainer { id: string; name: string; }
 ```
+
+\
+*DevNet Cluster Interface*
+
+\
+```ts
+export interface DevNetCluster {
+    readonly cardanoNode: DevNetContainer;
+    readonly kupo?: DevNetContainer;
+    readonly ogmios?: DevNetContainer;
+    readonly networkName: string;
+}
+```
+
+\
+  `Disclaimer: These code blocks illustrates the intended functionality and is subject to change as development progresses.`
+
 #pagebreak()
-*DevNet Lifecycle Functions*
 
-These core functions manage the DevNet's state and return an Effect type for robust error handling.
+*Individual Container Lifecycle Functions*
 
+\
+These core functions manage the DevNet's state and return an *`Effect`* type for robust error handling.
 
 ```ts
 
-  export const make: (
-    config?: DevNetConfig
-  ) => Effect<DevNetContainer, CardanoDevNetError>
+// Starts a specific individual DevNet container.
+start(container: DevNetContainer): Effect<void, CardanoDevNetError>
+startOrThrow(container: DevNetContainer): Promise<void>
 
-  export const startContainer: (
-    container: DevNetContainer
-  ) => Effect<void, CardanoDevNetError>
+// Stops a specific individual DevNet container.
+stop(container: DevNetContainer): Effect<void, CardanoDevNetError>
+stopOrThrow(container: DevNetContainer): Promise<void>
 
-  export const stopContainer: (
-    container: DevNetContainer
-  ) => Effect<void, CardanoDevNetError>
+// Removes a specific individual DevNet container.
+remove(container: DevNetContainer): Effect<void, CardanoDevNetError>
+removeOrThrow(container: DevNetContainer): Promise<void>
 
-  export const removeContainer: (
-    container: DevNetContainer
-  ) => Effect<void, CardanoDevNetError>
-
-  export const getContainerStatus: (
-    container: DevNetContainer
-  ) => Effect<Docker.ContainerInspectInfo, CardanoDevNetError>
+// Gets status information for a specific individual DevNet container.
+getStatus(container: DevNetContainer): Effect<Docker.ContainerInspectInfo | undefined, CardanoDevNetError>
+getStatusOrThrow(container: DevNetContainer): Promise<Docker.ContainerInspectInfo | undefined>
 
 ```
+
 \
+*DevNet Cluster Lifecycle Functions*
+
+\
+These functions operate on the entire *`DevNetCluster`* to manage its lifecycle.
+
+```ts
+
+  // Creates a new Cardano DevNet cluster, including optional Kupo and Ogmios containers.
+make(config?: DevNetConfig): Effect<DevNetCluster, CardanoDevNetError>
+makeOrThrow(config?: DevNetConfig): Promise<DevNetCluster> // Convenience method to throw on error
+
+// Starts all containers within a DevNet cluster (Cardano node, then Kupo/Ogmios).
+start(cluster: DevNetCluster): Effect<void, CardanoDevNetError>
+startOrThrow(cluster: DevNetCluster): Promise<void> // Convenience method to throw on error
+
+// Stops all containers within a DevNet cluster (Kupo/Ogmios first, then Cardano node).
+stop(cluster: DevNetCluster): Effect<void, CardanoDevNetError>
+stopOrThrow(cluster: DevNetCluster): Promise<void> // Convenience method to throw on error
+
+// Removes all containers and associated network for a DevNet cluster.
+remove(cluster: DevNetCluster): Effect<void, CardanoDevNetError>
+removeOrThrow(cluster: DevNetCluster): Promise<void> // Convenience method to throw on error
+
+```
+
+#pagebreak()
 *DevNet Configuration Interface*
 
 \
@@ -628,7 +612,9 @@ export interface DevNetConfig {
 
 ```
 \
+  `Disclaimer: This code illustrates the intended functionality and is subject to change as development progresses.`
 
+\
 *Genesis Configuration Types*
 
 Detailed types for each Cardano era's genesis file (*`NodeConfig`*, *`ByronGenesis`*, *`ShelleyGenesis`*, *`AlonzoGenesis`*, *`ConwayGenesis`*) and cryptographic key components (KesKey, OpCert, VrfSkey) enable granular control over network parameters.
@@ -639,48 +625,14 @@ Detailed types for each Cardano era's genesis file (*`NodeConfig`*, *`ByronGenes
 
 Pre-defined default values for each configuration type (e.g., *`DEFAULT_NODE_CONFIG`*, *`DEFAULT_BYRON_GENESIS`*, *`DEFAULT_DEVNET_CONFIG`*) ensure zero-config usability.
 
-\
-*Provider Integration Interface*
-
-This interface ensures compatibility with Lucid's existing *`Provider`* standard, allowing dApps to interact with the DevNet seamlessly.
-
-```ts
-
-interface DevNetProvider extends Provider {
-  readonly url: string; // e.g., "http://localhost:9232"
-  readonly networkMagic: number;
-  readonly container: DevNetContainer;
-
-  submitTx(tx: Transaction): Promise<TxHash>;
-  awaitTx(txHash: TxHash, timeout?: number): Promise<boolean>;
-  getUtxos(addressOrCredential: Address | Credential): Promise<UTxO[]>;
-  getUtxosWithUnit(addressOrCredential: Address | Credential, unit: Unit): Promise<UTxO[]>;
-  getUtxoByUnit(unit: Unit): Promise<UTxO>;
-  getUtxosByOutRef(outRefs: OutRef[]): Promise<UTxO[]>;
-  getDelegation(rewardAddress: RewardAddress): Promise<Delegation>;
-  getDatum(datumHash: DatumHash): Promise<Datum>;
-  getProtocolParameters(): Promise<ProtocolParameters>;
-}
-
-```
-
 #pagebreak()
 #v(50pt)
 
 = User Requirements
 \
-This section details the perspectives of various stakeholders and the specific capabilities (Functional Requirements) and performance, resource, and compatibility characteristics (Non-Functional Requirements) that the SDK must meet.
+This section details the perspectives of developers and the specific capabilities (Functional Requirements) and performance, resource, and compatibility characteristics (Non-Functional Requirements) that the SDK must meet.
 
 \
-== Stakeholder Profiles
-\
-- *DApp Developers:* Need quick, reliable private testnets for unit/integration tests.
-
-- *Smart Contract Auditors:* Require deterministic environments to reproduce and debug on-chain behavior.
-- *Project Managers:* Seek clear timelines, documented architecture, and assurance of production parity.
-- *Community Contributors:* Demand modular design to extend L2 support or add new utilities.
-
-#pagebreak()
 == Functional Requirements
 
 \
@@ -691,34 +643,30 @@ This section details the perspectives of various stakeholders and the specific c
 - *FR-004:* *Transaction Submission:* Via DevNetProvider.submitTx(tx), users can submit serialized transactions to the testnet.
 - *FR-005:* *UTxO and Datum Queries getUtxos:*, getDatum, and related methods return on-chain data.
 - *FR-006:* *Protocol Parameter Retrieval:* Users can fetch current protocol parameters via getProtocolParameters().
-- *FR-007:* *Hydra Head Operations:* Users can initialize, open, close, and fanout Hydra heads using TypeScript APIs.
-- *FR-008:* *Custom Genesis Configuration:* Users can supply custom partial genesis objects for each era.
-- *FR-009:* *Multi-Instance Support:* The SDK must allow parallel DevNets with isolated resources and no port collisions.
-- *FR-010:* *Testing Framework:* Integration Provide Jest/Vitest matchers and utilities for automated assertions.
-- *FR-011:* *Error Reporting All:* container and provider errors propagate as CardanoDevNetError with reason and message.
-- *FR-012:* *Resource Limits:* Default CPU and memory caps per container; configurable in DevNetConfig.
+- *FR-007:* *Custom Genesis Configuration:* Users can supply custom partial genesis objects for each era.
+- *FR-008:* *Multi-Instance Support:* The SDK must allow parallel DevNets with isolated resources and no port collisions.
+- *FR-09:* *Testing Framework:* Integration Provide Jest/Vitest matchers and utilities for automated assertions.
+- *FR-010:* *Error Reporting All:* container and provider errors propagate as CardanoDevNetError with reason and message.
 
 #pagebreak()
 == Non-Functional Requirements
 \
 - *Performance:*
+  - *Startup Time:* Significantly fast initialization from *`make()`* to node readiness (socket available).
 
-  - *Startup Time:* *Under 30 seconds* from *`make()`* to node readiness (socket available).
-
-  - *Concurrent Instancing:* Support over 20 simultaneous DevNets on a 16 GB RAM, 4-core machine.
+  - *Concurrent Instancing:* Support for multiple simultaneous DevNets with optimized resource usage.
 
 \
 - *Reliability & Resilience:*
 
-  - *Uptime:* 99.9% for container operations in local development contexts.
+  - *Uptime:*  High uptime for container operations in local development contexts.
 
-  - *Auto-Recovery:* Optional automatic restart attempts if a node or Hydra head fails.
-  - *Error Handling:* Graceful degradation—non-blocking errors (e.g., optional Hydra) do not crash the SDK.
+  - *Error Handling:* Graceful degradation—non-blocking errors do not crash the SDK.
 
 \
 - *Usability:*
 
-  - *Zero-Config Defaults:* Reasonable defaults for DevNetConfig (networkMagic: 42, ports: {node: 4001, submit: 8090}, image: official Cardano Node).
+  - *Zero-Config Defaults:* easonable defaults for DevNetConfig (networkMagic, ports, image).
 
   - *Type Safety:* Complete TypeScript definitions with IntelliSense.
   - *Documentation:* Comprehensive code comments, usage examples, and a Getting Started guide.
@@ -729,8 +677,8 @@ This section details the perspectives of various stakeholders and the specific c
   - *Operating Systems:* macOS (with Docker Desktop), Linux (x86_64), Windows 10/11 (with WSL2).
 
   - *Node.js:* Version 16+ (LTS), TypeScript 4.5+.
+  
   - *Cardano Node Versions:* Compatible with Cardano Node 10.4.1; plan for backward compatibility to 10.3 and forward to next minor release.
-  - *Hydra:* Compatible with Hydra node version 1.0+.
 
 #pagebreak()
 #v(50pt)
@@ -790,29 +738,55 @@ The table below describes the planned development order based on community feedb
 
   // P3 - Layer 2 Integration & Governance
   [*P3*], [*Layer 2 Integration & Governance*)], [],
-  [], [Hydra Head Protocol Support (Simulate state channels, spin up/down Hydra via SDK)], [*#issue_520*],
-  [], [L1 ↔ L2 Interoperability (Integrate Hydra with Lucid transaction builder, benchmark L2 throughput/latency, Automated L1 settlement)], [*#issue_521*],
   [], [Stake Pool & Governance Simulation (Reward distribution, Delegation, Leader election, CIP-1694 workflows)], [*#issue_524*],
   [], [Advanced Tutorials Documentation], [*#issue_525*],
 )
 
-\
+#v(50pt)
+
 = Conclusion
-\
-This design specification documents the complete architecture, functional requirements, and prioritized feature set for Milestone 1 of Lucid Evolution 2.0. The SDK’s modular, TypeScript-first approach powered by Effect-TS and Dockerode/Testcontainers ensures developers can quickly provision authentic Cardano testnets, including L2 (Hydra) capabilities, with minimal setup.
 
 \
+This design specification documents the complete architecture, functional requirements, and prioritized feature set for Milestone 1 of Lucid Evolution 2.0. The SDK’s modular, TypeScript-first approach powered by Effect-TS and Dockerode/Testcontainers ensures developers can quickly provision authentic Cardano testnets, with minimal setup.
+
+#pagebreak()
+#v(50pt)
+
 = Next Steps
 
 \
-+ *Milestone 2* (Core SDK Development): Implement DevNet container layer, basic DevNetProvider, and test utilities (0–2 months).
++ *Milestone 2* (Core SDK Development): 
 
-+ *Milestone 3* (Documentation & Onboarding): Publish full developer guides, example repositories, and run community workshops (2–3 months).
+  \
+  SDK Implementation: 
 
-+ *Milestone 4* (Feature Optimization): Add custom genesis, multi-instance, logging, and retry enhancements; perform extensive performance tuning (3–4 months).
+    - Initial SDK to create and manage private testnets with features like configurable parameters, automated setup/teardown, and APIs for contract deployment.
+    - Dockerode/Testcontainers Integration:
 
-+ *Final Milestone* (L2 Integration & Release): Complete Hydra head integration, state snapshots, CLI tool, visual explorer; prepare community release and closeout report (4–6 months).
+  On-demand provisioning of isolated test environments with pre-configured container images.
 
+  \
++ *Milestone 3* (Documentation & Onboarding): 
+
+  \
+  - Creation of initial user guides and documentation to support developers in using the SDK.
+
+  - Development of onboarding materials, including quick start guides and example projects.
+
+  \
++ *Milestone 4* (Feature Development and Optimization): 
+  
+  - Implementation of additional features and optimizations based on developer feedback.
+
+  - Final adjustments to ensure robust performance and usability of the SDK.
+
++ *Final Milestone* (Project Closeout): 
+
+  - Project Closeout Report: Summarizing project achievements, challenges, lessons learned.
+
+  - Demonstration Video: Showcasing key features and improvements of Lucid Evolution.
+
+\
 Upon approval, the team will begin Milestone 2, adhering to the roadmap and using the performance/risk metrics defined herein. Successful delivery of this SDK will significantly improve Cardano developer productivity, test coverage, and ecosystem reliability.
 
 \
