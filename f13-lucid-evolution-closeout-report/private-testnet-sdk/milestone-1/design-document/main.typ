@@ -163,7 +163,7 @@ Our solution architecture is designed to overcome these problems by achieving th
 \
 This SDK offers substantial advantages throughout the development lifecycle:
 
-- *80% Reduction* in developer setup time for testing environments.
+- *Significant Reduction* in developer setup time for testing environments.
 
 - *Elimination of external script dependencies*, simplifying workflows and reducing maintenance.
 - *Enhanced Reliability* through real Cardano node integration, leading to more accurate test results.
@@ -406,7 +406,7 @@ This component bridges the DevNet functionality with Lucid's API and supports La
  == L2 (Hydra) Integration Layer
 
 \
-This layer will provide comprehensive tools for integrating and managing Hydra heads with your DevNet.
+The Hydra provider will provide comprehensive tools for integrating and managing Hydra heads with your DevNet.
 
 \
 ===  Hydra Head Lifecycle
@@ -649,27 +649,70 @@ This section details the perspectives of various stakeholders and the specific c
   - *Hydra:* Compatible with Hydra node version 1.0+.
 
 #pagebreak()
+#v(50pt)
+
 = Feature Prioritization
 \
-Below the planned development order based on community feedback and project needs.
+The table below describes the planned development order based on community feedback and project needs.
+
+\
+#table(
+  columns: (1fr, 3fr, 1fr),
+  align: center,
+  table.header(
+    [*Priority*],
+    [*Feature*],
+    [*GitHub Issue*]
+  ),
+  // P1 - Core Testnet Functionality & Basic Integration
+  [*P1*], [*Core Testnet Functionality & Basic Integration*], [],
+  [], [Private Testnet Lifecycle Management (Spin up/down, start/stop/restart, remove)], [\#510, \#513],
+  [], [Customizable Parameters (Protocol parameters, genesis file templates)], [\#514],
+  [], [Initial UTxO Distribution/Genesis Block Configuration], [\#511],
+  [], [Basic Lucid Provider Integration (Transaction submission, basic data queries)], [\#510],
+  [], [Core Testing Utilities (Jest/Vitest matchers: #h(2pt) `toBeRunning`, #h(2pt) `toHaveBalance`, #h(2pt) `toContainUtxo`, #h(2pt) `toHaveConfirmedTx`, Dry-run mode, Redeemer evaluation)], [\#516],
+  [], [Error Reporting (#h(2pt) `CardanoDevNetError` propagation)], [\#510],
+  [], [Quickstart Guides & Usage Examples Documentation], [\#525],
+
+  // P2 - Advanced Management & Wallet/Asset Features
+  [*P2*], [*Advanced Management & Wallet/Asset Features*], [],
+  [], [Multi-Instance Support (Parallel DevNets with isolation; simulate multi-node clusters)], [\#512, \#510],
+  [], [Time/Slot Simulation (#h(2pt) `awaitSlot`, #h(2pt) `awaitBlock`)], [\#513],
+  [], [Blockchain State Management (Save/load snapshots)], [\#513],
+  [], [Wallet & Asset Management (Wallet creation/restoration, Multi-Sig support, Token/NFT minting/burning, Asset distribution monitoring)], [\#523],
+  [], [Debugging Tools (Visual State Logging, Transaction Inspection, Simulated Network Conditions)], [\#518],
+  [], [Configurable Resource Limits (CPU, memory caps)], [\#510],
+
+  // P3 - Layer 2 Integration & Governance
+  [*P3*], [*Layer 2 Integration & Governance*)], [],
+  [], [Hydra Head Protocol Support (Simulate state channels, spin up/down Hydra via SDK)], [\#519, \#520],
+  [], [L1 ↔ L2 Interoperability (Integrate Hydra with Lucid transaction builder, benchmark L2 throughput/latency, Automated L1 settlement)], [\#521],
+  [], [Stake Pool & Governance Simulation (Reward distribution, Delegation, Leader election, CIP-1694 workflows)], [\#524],
+  [], [Advanced Tutorials Documentation], [\#525],
+
+  // O - Ongoing/Future Enhancements
+  [*O*], [*Ongoing/Future Enhancements*], [],
+  [], [Example Projects (NFT marketplaces, DEX swaps, DAO governance models)], [\#525],
+  [], [Community Support Channels (GitHub issue templates)], [\#525],
+)
 
 
 #pagebreak()
 #v(50pt)
 = Conclusion
 \
-This design specification documents the complete architecture, functional requirements, and prioritized feature set for Milestone 1 of Lucid Evolution 2.0. The SDK’s modular, TypeScript-first approach—powered by Effect-TS and Dockerode/Testcontainers—ensures developers can quickly provision authentic Cardano testnets, including L2 (Hydra) capabilities, with minimal setup.
+This design specification documents the complete architecture, functional requirements, and prioritized feature set for Milestone 1 of Lucid Evolution 2.0. The SDK’s modular, TypeScript-first approach powered by Effect-TS and Dockerode/Testcontainers ensures developers can quickly provision authentic Cardano testnets, including L2 (Hydra) capabilities, with minimal setup.
 
 \
 = Next Steps
 
 \
-+ Milestone 2 (Core SDK Development): Implement DevNet container layer, basic DevNetProvider, and test utilities (0–2 months).
++ *Milestone 2* (Core SDK Development): Implement DevNet container layer, basic DevNetProvider, and test utilities (0–2 months).
 
-+ Milestone 3 (Documentation & Onboarding): Publish full developer guides, example repositories, and run community workshops (2–3 months).
++ *Milestone 3* (Documentation & Onboarding): Publish full developer guides, example repositories, and run community workshops (2–3 months).
 
-+ Milestone 4 (Feature Optimization): Add custom genesis, multi-instance, logging, and retry enhancements; perform extensive performance tuning (3–4 months).
++ *Milestone 4* (Feature Optimization): Add custom genesis, multi-instance, logging, and retry enhancements; perform extensive performance tuning (3–4 months).
 
-+ Final Milestone (L2 Integration & Release): Complete Hydra head integration, state snapshots, CLI tool, visual explorer; prepare community release and closeout report (4–6 months).
++ *Final Milestone* (L2 Integration & Release): Complete Hydra head integration, state snapshots, CLI tool, visual explorer; prepare community release and closeout report (4–6 months).
 
 Upon approval, the team will begin Milestone 2, adhering to the roadmap and using the performance/risk metrics defined herein. Successful delivery of this SDK will significantly improve Cardano developer productivity, test coverage, and ecosystem reliability.
