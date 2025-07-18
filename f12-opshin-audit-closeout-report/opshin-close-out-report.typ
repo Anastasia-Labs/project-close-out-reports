@@ -33,13 +33,13 @@
 #table(
   columns: 2,
   stroke: none,
-  [*Project Number*],
+  [*Project number*],
   [1200175],
   [*Project manager*],
   [Philip Disarro],
-  [*Date Started*],
+  [*Date started*],
   [21-Oct-2024],
-  [*Date Completed*],
+  [*Date completed*],
   [05-May-2025],
 )
 
@@ -102,18 +102,18 @@
 #v(10pt)
 == Challenge KPIs
 #v(10pt)
-- *Improve Smart Contract Security:* By conducting an in-depth audit of the OpShin
+- *Improve smart contract security:* By conducting an in-depth audit of the OpShin
   language, the project directly addresses security risks associated with smart
   contract development. The expected outcome is a measurable reduction in critical
   and high-severity vulnerabilities, making DApps built with OpShin safer for
   users.
 
-- *Enhance Developer Knowledge and Best Practices:* The project provides clear,
+- *Enhance developer knowledge and best practices:* The project provides clear,
   actionable best practices and development guidelines for using OpShin
   effectively. This helps elevate the quality of code across the ecosystem and
   supports developer onboarding.
 
-- *Drive Ecosystem Trust and Maturity:* The public audit and transparent
+- *Drive ecosystem trust and maturity:* The public audit and transparent
   communication of findings will reinforce OpShin’s position as a secure and
   trustworthy platform for smart contract development. By identifying edge cases
   and potential problems early in OpShin, the audit enables developers to avoid
@@ -122,7 +122,7 @@
 #v(20pt)
 == Project KPIs
 #v(40pt)
-- *Reduction in Critical Vulnerabilities:* As part of our comprehensive audit of
+- *Reduction in critical vulnerabilities:* As part of our comprehensive audit of
   the OpShin language, we identified 9 critical and 16 major vulnerabilities
   within the codebase. These findings highlight previously unaddressed security
   risks that could impact smart contract reliability and user safety. By surfacing
@@ -131,19 +131,19 @@
   not only enhances developer confidence in using OpShin but also helps reduce the
   risk of exploit-prone contracts being deployed on mainnet.
 
-- *Audit Delivered with Categorized Findings:* The audit report provides a
+- *Audit delivered with categorized findings:* The audit report provides a
   detailed breakdown of each identified issue, categorized by Security,
   Performance, Maintainability, and Usability, and classified by severity as
-  Critical, High, Medium, or Informational. Each finding includes an assessment of
+  Critical, Major, Medium, Minor or Informational. Each finding includes an assessment of
   its potential risk or exploitability, along with a clear explanation of its
   impact on smart contract behavior and user assets. Wherever applicable, the
   report outlines steps to reproduce the issue, along with practical
   recommendations and mitigation strategies for each finding.
 
-- *Publicly Released Outputs:* As part of OpShin's commitment to
+- *Publicly released outputs:* As part of OpShin's commitment to
   transparency and community impact, several key deliverables have been made
-  publicly accessible. These include a comprehensive audit report, detailed edge
-  case documentation, and the public dissemination of the finalized report across
+  publicly accessible. These include a #link("https://github.com/Anastasia-Labs/opshin-audit/blob/milestone4-progress/catalyst_docs/milestone4/milestone4-draft-audit-report.pdf")[comprehensive audit report], #link("https://github.com/Anastasia-Labs/opshin-audit/blob/main/catalyst_docs/milestone3/milestone3-audit-tracker.pdf")[edge
+  case documentation], and the public dissemination of the finalized report across
   multiple platforms. All outputs are clearly written and freely available to the
   community. These contributions not only demonstrate the value delivered through
   the audit but also support ecosystem-wide learning, adoption, and long-term
@@ -156,22 +156,22 @@
 = Key achievements <key-achievements>
 #v(40pt)
 
-- *Comprehensive Audit Report Completed:* Delivered a full audit report of the
-  OpShin codebase, including a quantitative breakdown of vulnerabilities across
-  critical, high, medium, and low severities.
+- *Comprehensive audit report completed:* Delivered a full audit report of the
+  OpShin codebase, except Pluthon, including a quantitative breakdown of vulnerabilities across
+  Critical, Major, Medium, Minor and Informational severities.
 
-- *Edge Cases Identified and Documented:* Successfully uncovered and described
+- *Edge cases identified and documented:* Successfully uncovered and described
   multiple unique edge cases relevant to smart contract development, enhancing
   code resilience and safety.
 
-- *High Code Coverage Achieved:* Measured and reported the percentage of OpShin
+- *High code coverage achieved:* Measured and reported the percentage of OpShin
   code covered by unit tests, strengthening test reliability and identifying gaps.
 
-- *Detailed and Actionable Recommendations:* Provided clear, prioritized
+- *Detailed and actionable recommendations:* Provided clear, prioritized
   recommendations for improvements, addressing both immediate security concerns
   and long-term maintainability.
 
-- *Collaboration and Validation by the OpShin Team:* Collected structured feedback
+- *Collaboration and validation by the OpShin team:* Collected structured feedback
   from the OpShin team and confirmed that all critical and high-severity
   issues were addressed via commits, pull requests, or updated documentation.
 
@@ -181,24 +181,24 @@
 // Section for Key learnings
 = Key learnings <key-learnings>
 #v(40pt)
-- *Value of Early Edge Case Identification:* Many vulnerabilities stemmed from
+- *Value of early edge case identification:* Many vulnerabilities stemmed from
   uncommon or edge-case logic paths, reinforcing the importance of proactive edge
   case analysis in language-level audits.
 
-- *Manual Review Remains Crucial:* While automated tools and unit tests offered
+- *Manual review remains crucial:* While automated tools and unit tests offered
   initial coverage, several high-impact issues were only discovered through deep
   manual inspection, especially in performance and maintainability areas.
 
-- *Collaboration Drives Quality:* Direct engagement with the OpShin team
+- *Collaboration drives quality:* Direct engagement with the OpShin team
   significantly improved issue resolution and knowledge transfer. Iterative
   feedback ensured alignment on severity, prioritization, and practical fixes.
 
-- *Documentation is a Force Multiplier:* The creation of a public-facing audit
+- *Documentation is a force multiplier:* The creation of a public-facing audit
   report, updated OpShin book, and edge case documentation not only delivered
   immediate value but also contributed to ecosystem trust and onboarding for
   future developers.
 
-- *Security and Developer Experience Go Hand-in-Hand:* Improving language
+- *Security and developer experience go hand-in-hand:* Improving language
   reliability also improves developer confidence and productivity. A secure,
   well-documented language reduces debugging and accelerates safe contract
   development.
