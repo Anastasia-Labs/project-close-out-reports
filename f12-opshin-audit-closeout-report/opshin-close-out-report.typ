@@ -140,7 +140,7 @@
   report outlines steps to reproduce the issue, along with practical
   recommendations and mitigation strategies for each finding.
 
-- *Number of Publicly Released Outputs:* As part of OpShin's commitment to
+- *Publicly Released Outputs:* As part of OpShin's commitment to
   transparency and community impact, several key deliverables have been made
   publicly accessible. These include a comprehensive audit report, detailed edge
   case documentation, and the public dissemination of the finalized report across
@@ -172,7 +172,7 @@
   and long-term maintainability.
 
 - *Collaboration and Validation by the OpShin Team:* Collected structured feedback
-  from the core OpShin team and confirmed that all critical and high-severity
+  from the OpShin team and confirmed that all critical and high-severity
   issues were addressed via commits, pull requests, or updated documentation.
 
 #pagebreak()
