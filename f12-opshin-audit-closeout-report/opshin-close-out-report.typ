@@ -7,7 +7,7 @@
 )
 
 // Set default text style
-#set text(15pt, font: "Barlow")
+#set text(15pt, font: "Libertinus Serif")
 
 #v(3cm) // Add vertical space
 
@@ -77,11 +77,11 @@
 // Initialize page counter
 #counter(page).update(0)
 
-#set page(footer: [
+#set page(footer:context[ [
   #set text(11pt)
   #line(length: 100%) // Add a line above the footer
   #align(center)[*Anastasia Labs* \ Project Close-out Report]
-  #place(right, dy: -7pt)[#counter(page).display("1/1", both: true)]
+  #place(right, dy: -7pt)[#counter(page).display("1/1", both: true)]]
 ])
 #v(100pt)
 
