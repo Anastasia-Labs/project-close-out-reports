@@ -211,7 +211,13 @@
 // Section for Next steps
 = Next steps <next-steps>
 #v(10pt)
-- To be filled by OpShin team
+As next steps, we plan several core overhauls to the OpShin language, inspired by successful comparable tools.
+
+- *Overhauled Contract Design:* We will change the way that smart contracts are defined to make the assigment of parameters more convenient and enable easily defining and differentiating spending, withdrawal and other purposes.
+
+- *Completing Plutus V3:* OpShin is on track to support PlutusV3, enabling cheaper and more convenient execution of relevant functionalities.
+
+- *Improving User Experience:* As also recommended in the Audit, the OpShin team will focus on enhancing usability, user experience and error feedback to improve the overall usability of OpShin.
 
 = Final thoughts
 #v(10pt)
@@ -240,6 +246,9 @@ improvements, open collaboration, and greater adoption across the community.
     == Project
     #link("https://github.com/OpShin/opshin")[Main Github Repo] \
     #link(
+      "https://github.com/Anastasia-Labs/opshin-audit",
+    )[Audit GitHub Repo] \
+    #link(
       "https://projectcatalyst.io/funds/12/cardano-open-developers/opshin-audit",
     )[Catalyst Proposal]
 
@@ -251,4 +260,4 @@ improvements, open collaboration, and greater adoption across the community.
 // Center-align close-out video link
 #align(
   center,
-)[== Close-out Video <link-other> #link("link11_placeholder")[Link Placeholder]]
+)[== Close-out Video <link-other> #link("https://youtu.be/dQzK5gSLOxU")[Link To Closeout Video]]
