@@ -77,7 +77,7 @@
 // Initialize page counter
 #counter(page).update(0)
 
-#set page(footer:context[ [
+#set page(footer:context[[
   #set text(11pt)
   #line(length: 100%) // Add a line above the footer
   #align(center)[*Anastasia Labs* \ Project Close-out Report]
