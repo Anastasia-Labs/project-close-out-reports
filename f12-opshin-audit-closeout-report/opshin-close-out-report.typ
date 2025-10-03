@@ -77,11 +77,11 @@
 // Initialize page counter
 #counter(page).update(0)
 
-#set page(footer:context[[
+#set page(footer: [
   #set text(11pt)
   #line(length: 100%) // Add a line above the footer
   #align(center)[*Anastasia Labs* \ Project Close-out Report]
-  #place(right, dy: -7pt)[#counter(page).display("1/1", both: true)]]
+  #place(right, dy: -7pt)[#context counter(page).display("1/1", both: true)]
 ])
 #v(100pt)
 
@@ -119,7 +119,7 @@
   and potential problems early in OpShin, the audit enables developers to avoid
   time-consuming debugging and security rework.
 #pagebreak()
-#v(20pt)
+#v(30pt)
 == Project KPIs
 #v(40pt)
 - *Reduction in critical vulnerabilities:* As part of our comprehensive audit of
@@ -177,7 +177,7 @@
 
 #pagebreak()
 
-#v(10pt)
+#v(30pt)
 // Section for Key learnings
 = Key learnings <key-learnings>
 #v(40pt)
@@ -206,7 +206,7 @@
 #v(10pt)
 #pagebreak()
 
-#v(50pt)
+#v(30pt)
 
 // Section for Next steps
 = Next steps <next-steps>
@@ -218,7 +218,7 @@ As next steps, we plan several core overhauls to the OpShin language, inspired b
 - *Completing Plutus V3:* OpShin is on track to support PlutusV3, enabling cheaper and more convenient execution of relevant functionalities.
 
 - *Improving User Experience:* As also recommended in the Audit, the OpShin team will focus on enhancing usability, user experience and error feedback to improve the overall usability of OpShin.
-
+#v(10pt)
 = Final thoughts
 #v(10pt)
 This audit has been a valuable step toward strengthening the security,
@@ -230,8 +230,8 @@ OpShin team throughout the process ensured that findings were not only
 identified but also meaningfully addressed. As the language continues to evolve,
 we hope this work serves as both a reference and a catalyst for continued
 improvements, open collaboration, and greater adoption across the community.
-
-#v(30pt)
+#pagebreak()
+#v(50pt)
 
 // Section for Resources
 = Resources
@@ -259,5 +259,5 @@ improvements, open collaboration, and greater adoption across the community.
 
 // Center-align close-out video link
 #align(
-  center,
+  left,
 )[== Close-out Video <link-other> #link("https://youtu.be/dQzK5gSLOxU")[Link To Closeout Video]]
